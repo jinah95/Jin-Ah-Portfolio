@@ -77,6 +77,8 @@ const Intro = () => {
                             borderRadius: "20px",
                             textAlign: "center",
                             fontSize: "2em",
+                            wordBreak: "keep-all",
+                            whiteSpace: "nowrap ",
                         }}
                     >
                         개인조직 생산성 강화에 도모
