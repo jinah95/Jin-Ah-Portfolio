@@ -5,6 +5,7 @@ import Projects from "./Projects";
 import TimeLine from "./TimeLine";
 import Footer from "./Footer";
 import Dots from "./Dots";
+import styled from "styled-components";
 import { useRef, useEffect, useState } from "react";
 
 const DIVIDER_HEIGHT = 5;
@@ -12,6 +13,7 @@ const DIVIDER_HEIGHT = 5;
 const MyPortfolio = () => {
     const outerDivRef = useRef();
     const [scrollIndex, setScrollIndex] = useState(1);
+    const [noDots, setNoDots] = useState(true);
 
     useEffect(() => {
         const wheelHandler = (e) => {
@@ -28,6 +30,7 @@ const MyPortfolio = () => {
                         left: 0,
                         behavior: "smooth",
                     });
+                    setNoDots(true);
                     setScrollIndex(2);
                 } else if (
                     scrollTop >= pageHeight &&
@@ -38,6 +41,7 @@ const MyPortfolio = () => {
                         left: 0,
                         behavior: "smooth",
                     });
+                    setNoDots(false);
                     setScrollIndex(3);
                 } else if (
                     scrollTop >= pageHeight * 2 &&
@@ -48,6 +52,7 @@ const MyPortfolio = () => {
                         left: 0,
                         behavior: "smooth",
                     });
+                    setNoDots(true);
                     setScrollIndex(4);
                 } else if (
                     scrollTop >= pageHeight * 3 &&
@@ -58,6 +63,7 @@ const MyPortfolio = () => {
                         left: 0,
                         behavior: "smooth",
                     });
+                    setNoDots(true);
                     setScrollIndex(5);
                 } else {
                     outerDivRef.current.scrollTo({
@@ -65,6 +71,7 @@ const MyPortfolio = () => {
                         left: 0,
                         behavior: "smooth",
                     });
+                    setNoDots(true);
                     setScrollIndex(5);
                 }
             } else {
@@ -75,6 +82,7 @@ const MyPortfolio = () => {
                         left: 0,
                         behavior: "smooth",
                     });
+                    setNoDots(true);
                     setScrollIndex(1);
                 } else if (
                     scrollTop >= pageHeight &&
@@ -85,6 +93,7 @@ const MyPortfolio = () => {
                         left: 0,
                         behavior: "smooth",
                     });
+                    setNoDots(true);
                     setScrollIndex(1);
                 } else if (
                     scrollTop >= pageHeight * 2 &&
@@ -95,6 +104,7 @@ const MyPortfolio = () => {
                         left: 0,
                         behavior: "smooth",
                     });
+                    setNoDots(true);
                     setScrollIndex(2);
                 } else if (
                     scrollTop >= pageHeight * 3 &&
@@ -105,6 +115,7 @@ const MyPortfolio = () => {
                         left: 0,
                         behavior: "smooth",
                     });
+                    setNoDots(false);
                     setScrollIndex(3);
                 } else if (
                     scrollTop >= pageHeight * 4 &&
@@ -115,6 +126,7 @@ const MyPortfolio = () => {
                         left: 0,
                         behavior: "smooth",
                     });
+                    setNoDots(true);
                     setScrollIndex(4);
                 }
             }
@@ -126,20 +138,29 @@ const MyPortfolio = () => {
         };
     }, []);
     return (
-        <div ref={outerDivRef} className="outer">
-            <Dots scrollIndex={scrollIndex} />
-            <Intro />
-            <div className="divider"></div>
-            <Skills />
-            <div className="divider"></div>
-            <Projects />
-            <div className="divider"></div>
-            <TimeLine />
-            <div className="divider"></div>
-            <Footer />
-            <div className="divider"></div>
-        </div>
+        <>
+            {/* <Comment>
+                # UI상 해당 페이지에서 ScrollDots는 숨겨두었습니다.
+            </Comment> */}
+            <div ref={outerDivRef} className="outer">
+                {noDots && <Dots scrollIndex={scrollIndex} />}
+                <Intro />
+                <div className="divider"></div>
+                <Skills />
+                <div className="divider"></div>
+                <Projects />
+                <div className="divider"></div>
+                <TimeLine />
+                <div className="divider"></div>
+                <Footer />
+                <div className="divider"></div>
+            </div>
+        </>
     );
 };
 
 export default MyPortfolio;
+
+const Comment = styled.span`
+    font-size: 0.3em;
+`;
