@@ -1,7 +1,6 @@
 import React from "react";
 
 const Skill = ({ item }) => {
-    console.log(item);
     return (
         <div
             style={{
