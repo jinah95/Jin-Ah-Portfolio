@@ -23,7 +23,6 @@ const MyPortfolio = () => {
             if (deltaY > 0) {
                 // 스크롤 내릴 때
                 if (scrollTop >= 0 && scrollTop < pageHeight) {
-                    console.log("skill 페이지로");
                     outerDivRef.current.scrollTo({
                         top: pageHeight + DIVIDER_HEIGHT,
                         left: 0,
@@ -34,7 +33,6 @@ const MyPortfolio = () => {
                     scrollTop >= pageHeight &&
                     scrollTop < pageHeight * 2
                 ) {
-                    console.log("Projects 페이지로");
                     outerDivRef.current.scrollTo({
                         top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
                         left: 0,
@@ -45,7 +43,6 @@ const MyPortfolio = () => {
                     scrollTop >= pageHeight * 2 &&
                     scrollTop < pageHeight * 3
                 ) {
-                    console.log("Projects 페이지로");
                     outerDivRef.current.scrollTo({
                         top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
                         left: 0,
@@ -56,7 +53,6 @@ const MyPortfolio = () => {
                     scrollTop >= pageHeight * 3 &&
                     scrollTop < pageHeight * 4
                 ) {
-                    console.log("Projects 페이지로");
                     outerDivRef.current.scrollTo({
                         top: pageHeight * 4 + DIVIDER_HEIGHT * 4,
                         left: 0,
@@ -64,7 +60,6 @@ const MyPortfolio = () => {
                     });
                     setScrollIndex(5);
                 } else {
-                    console.log("현재 3페이지, down");
                     outerDivRef.current.scrollTo({
                         top: pageHeight * 4 + DIVIDER_HEIGHT * 4,
                         left: 0,
@@ -75,7 +70,6 @@ const MyPortfolio = () => {
             } else {
                 // 스크롤 올릴 때
                 if (scrollTop >= 0 && scrollTop < pageHeight) {
-                    console.log("현재 1페이지, up");
                     outerDivRef.current.scrollTo({
                         top: 0,
                         left: 0,
@@ -86,7 +80,6 @@ const MyPortfolio = () => {
                     scrollTop >= pageHeight &&
                     scrollTop < pageHeight * 2
                 ) {
-                    console.log("현재 2페이지, up");
                     outerDivRef.current.scrollTo({
                         top: 0,
                         left: 0,
@@ -97,7 +90,6 @@ const MyPortfolio = () => {
                     scrollTop >= pageHeight * 2 &&
                     scrollTop < pageHeight * 3
                 ) {
-                    console.log("현재 12페이지, up");
                     outerDivRef.current.scrollTo({
                         top: pageHeight + DIVIDER_HEIGHT,
                         left: 0,
@@ -108,7 +100,6 @@ const MyPortfolio = () => {
                     scrollTop >= pageHeight * 3 &&
                     scrollTop < pageHeight * 4
                 ) {
-                    console.log("현재 192페이지, up");
                     outerDivRef.current.scrollTo({
                         top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
                         left: 0,
@@ -119,7 +110,6 @@ const MyPortfolio = () => {
                     scrollTop >= pageHeight * 4 &&
                     scrollTop < pageHeight * 5
                 ) {
-                    console.log("현재 192페이지, up");
                     outerDivRef.current.scrollTo({
                         top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
                         left: 0,
