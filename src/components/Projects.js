@@ -33,12 +33,7 @@ const Projects = () => {
                 }}
             >
                 {" "}
-                <div>
-                    {"<Projects>"}
-                    <Comment>
-                        # UI상 해당 페이지에서 ScrollDots는 숨겨두었습니다.
-                    </Comment>
-                </div>
+                <div>{"<Projects>"}</div>
                 <div
                     style={{
                         width: "80vMin",
