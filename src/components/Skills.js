@@ -1,5 +1,6 @@
 import React from "react";
 import Skill from "./Skill";
+import mySkills from "../mySkills.json";
 
 const Skills = () => {
     return (
@@ -17,6 +18,17 @@ const Skills = () => {
                 <div>{"<Skills>"}</div>
                 <div
                     style={{
+                        width: "100%",
+                        height: "8vh",
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        alignItems: "center",
+                    }}
+                >
+                    <img src="imgs/infoBar.png" alt="InfoBar" />
+                </div>
+                <div
+                    style={{
                         width: "80vMin",
                         height: "60vh",
                         border: "2px solid black",
@@ -26,7 +38,9 @@ const Skills = () => {
                         justifyContent: "space-evenly",
                     }}
                 >
-                    <Skill />
+                    {mySkills.map((item, index) => (
+                        <Skill key={`skill-${index}`} item={item} />
+                    ))}
                 </div>
                 <div>{"</Skills>"}</div>
             </div>
