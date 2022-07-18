@@ -99,12 +99,13 @@ code {
 }
 .timeline {
     background: var(--primary-color);
-
+    width: 80vmin;
     padding: 20px;
     height: 60vh;
 }
 .outerDiv {
     border-left: 2px solid #333;
+    width: 100%;
 }
 .card {
     position: relative;
@@ -121,6 +122,7 @@ code {
 .info {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 .title {
     color: orangered;

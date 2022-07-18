@@ -9,6 +9,7 @@ const TimeLine = () => {
                     flexDirection: "column",
                     justifyContent: "space-between",
                     alignItems: "center",
+                    width: "100%",
                     height: "85vh",
                     paddingBottom: "7vh",
                 }}
