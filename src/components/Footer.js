@@ -1,12 +1,39 @@
 import React from "react";
-import contacts from "../contacts.json";
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Footer = () => {
     const isMobile = useMediaQuery({ query: "(max-width: 680px)" });
+
+    const copiedText = async (text) => {
+        try {
+            await navigator.clipboard.writeText(text);
+            toast.success("  복사되었습니다.", {
+                icon: ({ theme, type }) => (
+                    <img
+                        src="MYLOGO.png"
+                        alt="mylogo"
+                        style={{
+                            width: "4vmin",
+                            height: "4vmin",
+                        }}
+                    />
+                ),
+            });
+        } catch (e) {
+            toast.error("실패했습니다. 다시 시도해주세요!");
+        }
+    };
+
     return (
         <div className="inner" style={{ fontSize: "3.5em" }}>
+            <ToastContainer
+                autoClose={3000}
+                icon={false}
+                style={{ fontSize: "0.38em" }}
+            />
             <Container>
                 <div>{"<Footer>"}</div>
                 <ProfileWrapper>
@@ -39,8 +66,21 @@ const Footer = () => {
                                 <Icon
                                     src="imgs/kakaotalk.png"
                                     alt="kakaotalk"
+                                    onClick={(e) =>
+                                        copiedText(
+                                            process.env.REACT_APP_CONTACT_KAKAO
+                                        )
+                                    }
                                 />
-                                <Icon src="imgs/email.png" alt="email" />
+                                <Icon
+                                    src="imgs/email.png"
+                                    alt="email"
+                                    onClick={() =>
+                                        copiedText(
+                                            process.env.REACT_APP_CONTACT_EMAIL
+                                        )
+                                    }
+                                />
                             </IconsWrapper>
                             #Links
                             <IconsWrapper>
@@ -48,19 +88,31 @@ const Footer = () => {
                                     src="imgs/github.png"
                                     alt="github"
                                     onClick={() =>
-                                        window.open(`${contacts[0].github}`)
+                                        window.open(
+                                            process.env
+                                                .REACT_APP_CONTACT_GITHUB_URL
+                                        )
                                     }
                                 />
                                 <Icon
                                     src="imgs/blog.png"
                                     alt="blog"
                                     onClick={() =>
-                                        window.open(`${contacts[0].blog}`)
+                                        window.open(
+                                            process.env
+                                                .REACT_APP_CONTACT_BLOG_URL
+                                        )
                                     }
                                 />
                                 <Icon
                                     src="imgs/Instagram.png"
                                     alt="Instagram"
+                                    onClick={() =>
+                                        window.open(
+                                            process.env
+                                                .REACT_APP_CONTACT_INSTAGRAM
+                                        )
+                                    }
                                 />
                             </IconsWrapper>
                         </ContactWrapper>
