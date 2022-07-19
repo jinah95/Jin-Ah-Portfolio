@@ -1,10 +1,10 @@
 import React from "react";
+import contacts from "../contacts.json";
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
 
 const Footer = () => {
     const isMobile = useMediaQuery({ query: "(max-width: 680px)" });
-
     return (
         <div className="inner" style={{ fontSize: "3.5em" }}>
             <Container>
@@ -44,8 +44,20 @@ const Footer = () => {
                             </IconsWrapper>
                             #Links
                             <IconsWrapper>
-                                <Icon src="imgs/github.png" alt="github" />
-                                <Icon src="imgs/blog.png" alt="blog" />
+                                <Icon
+                                    src="imgs/github.png"
+                                    alt="github"
+                                    onClick={() =>
+                                        window.open(`${contacts[0].github}`)
+                                    }
+                                />
+                                <Icon
+                                    src="imgs/blog.png"
+                                    alt="blog"
+                                    onClick={() =>
+                                        window.open(`${contacts[0].blog}`)
+                                    }
+                                />
                                 <Icon
                                     src="imgs/Instagram.png"
                                     alt="Instagram"
@@ -221,6 +233,7 @@ const IconsWrapper = styled.div`
 
 const Icon = styled.img`
     height: 4.5vh;
+    cursor: pointer;
     @media screen and (max-width: 680px) {
         height: 3.5vh;
     } ;
