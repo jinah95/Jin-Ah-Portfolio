@@ -44,7 +44,7 @@ const Container = styled.div`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 100%;
+    width: 80vmin;
     height: 8vh;
 `;
 
@@ -57,11 +57,12 @@ const PercentWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    width: 60vmin;
 `;
 
 const PercentConstruct = styled.div`
     height: 4vh;
-    width: 30vw;
+    width: 60vmin;
     border: 2px solid black;
     border-radius: 20px;
     position: relative;
@@ -73,7 +74,7 @@ const PercentConstruct = styled.div`
 
 const Percent = styled.div`
     height: 3vh;
-    width: ${(props) => (props.percent / 100) * 30}vw;
+    width: ${(props) => (props.percent / 100) * 60}vmin;
     border: 2px dashed black;
     border-radius: 18px;
     position: absolute;
