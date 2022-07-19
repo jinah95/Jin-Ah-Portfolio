@@ -6,7 +6,6 @@ import img3 from "./images/savetheearth.png";
 const imgArray = [img1, img3, img3];
 
 const Project = ({ project }) => {
-    console.log(project);
     return (
         <Wrapper>
             <ProjectCard>
