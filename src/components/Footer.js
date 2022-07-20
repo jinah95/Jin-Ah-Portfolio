@@ -245,9 +245,9 @@ const WrapperTitle = styled.div`
 `;
 
 const PointTitle = styled.div`
-    font-size: 1.2em;
-    font-weight: bold;
+    font-size: 1.3em;
     margin: 0 0.4vw;
+    color: orangered;
 `;
 
 const NameTitle = styled.div`
@@ -321,5 +321,5 @@ const MentionsWrapper = styled.div`
 `;
 
 const HightLight = styled.span`
-    background: linear-gradient(to top, yellow 50%, transparent 50%);
+    background: linear-gradient(to top, #ffefba 50%, transparent 50%);
 `;

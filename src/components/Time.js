@@ -68,6 +68,7 @@ const MainTitle = styled.span`
 const SubTitle = styled.span`
     font-size: 0.4em;
     word-break: keep-all;
+    color: #333;
 `;
 
 const Date = styled.span`
