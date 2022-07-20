@@ -33,7 +33,7 @@ const Dot = ({ num, scrollIndex, outerDivRef, setScrollIndex }) => {
     );
 };
 
-const Dots = ({ scrollIndex, outerDivRef, setScrollIndex }) => {
+const Dots = ({ scrollIndex, outerDivRef, setScrollIndex, setNoDots }) => {
     return (
         <div style={{ position: "fixed", top: "47%", right: 15 }}>
             <div
