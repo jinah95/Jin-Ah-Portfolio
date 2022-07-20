@@ -3,8 +3,9 @@ import styled from "styled-components";
 import img1 from "./images/survivalcoding.png";
 import img2 from "./images/toreolre.png";
 import img3 from "./images/savetheearth.png";
+import img4 from "./images/myPortfolio.png";
 
-const imgArray = [img1, img2, img3];
+const imgArray = [img1, img2, img3, img4];
 
 const Project = ({ project }) => {
     return (
