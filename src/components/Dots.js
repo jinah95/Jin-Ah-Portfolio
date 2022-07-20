@@ -1,6 +1,19 @@
 import React from "react";
 
-const Dot = ({ num, scrollIndex }) => {
+const DIVIDER_HEIGHT = 5;
+
+const Dot = ({ num, scrollIndex, outerDivRef, setScrollIndex }) => {
+    const pageHeight = window.innerHeight;
+    const dotsClickHandler = (e, num) => {
+        e.preventDefault();
+        outerDivRef.current.scrollTo({
+            top: pageHeight * (num - 1) + DIVIDER_HEIGHT * (num - 1),
+            left: 0,
+            behavior: "smooth",
+        });
+        setScrollIndex(num);
+    };
+
     return (
         <div
             style={{
@@ -11,12 +24,16 @@ const Dot = ({ num, scrollIndex }) => {
                 backgroundColor: scrollIndex === num ? "black" : "transparent",
                 transitionDuration: "0.5s",
                 transition: "background-color 0.5s ease-in-out",
+                cursor: "pointer",
+            }}
+            onClick={(e) => {
+                dotsClickHandler(e, num);
             }}
         ></div>
     );
 };
 
-const Dots = ({ scrollIndex }) => {
+const Dots = ({ scrollIndex, outerDivRef, setScrollIndex }) => {
     return (
         <div style={{ position: "fixed", top: "47%", right: 15 }}>
             <div
@@ -29,11 +46,36 @@ const Dots = ({ scrollIndex }) => {
                     height: 100,
                 }}
             >
-                <Dot num={1} scrollIndex={scrollIndex}></Dot>
-                <Dot num={2} scrollIndex={scrollIndex}></Dot>
-                <Dot num={3} scrollIndex={scrollIndex}></Dot>
-                <Dot num={4} scrollIndex={scrollIndex}></Dot>
-                <Dot num={5} scrollIndex={scrollIndex}></Dot>
+                <Dot
+                    num={1}
+                    scrollIndex={scrollIndex}
+                    outerDivRef={outerDivRef}
+                    setScrollIndex={setScrollIndex}
+                ></Dot>
+                <Dot
+                    num={2}
+                    scrollIndex={scrollIndex}
+                    outerDivRef={outerDivRef}
+                    setScrollIndex={setScrollIndex}
+                ></Dot>
+                <Dot
+                    num={3}
+                    scrollIndex={scrollIndex}
+                    outerDivRef={outerDivRef}
+                    setScrollIndex={setScrollIndex}
+                ></Dot>
+                <Dot
+                    num={4}
+                    scrollIndex={scrollIndex}
+                    outerDivRef={outerDivRef}
+                    setScrollIndex={setScrollIndex}
+                ></Dot>
+                <Dot
+                    num={5}
+                    scrollIndex={scrollIndex}
+                    outerDivRef={outerDivRef}
+                    setScrollIndex={setScrollIndex}
+                ></Dot>
             </div>
         </div>
     );

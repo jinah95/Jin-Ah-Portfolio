@@ -143,7 +143,13 @@ const MyPortfolio = () => {
                 # UI상 해당 페이지에서 ScrollDots는 숨겨두었습니다.
             </Comment> */}
             <div ref={outerDivRef} className="outer">
-                {noDots && <Dots scrollIndex={scrollIndex} />}
+                {noDots && (
+                    <Dots
+                        scrollIndex={scrollIndex}
+                        outerDivRef={outerDivRef}
+                        setScrollIndex={setScrollIndex}
+                    />
+                )}
                 <Intro />
                 <div className="divider"></div>
                 <Skills />
