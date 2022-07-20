@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import school from "./images/school.png";
+import TimeHistory from "../timeline.json";
+import Time from "./Time";
 
 const TimeLine = () => {
     return (
@@ -9,42 +10,9 @@ const TimeLine = () => {
                 <div>{"<TimeLine>"}</div>
                 <TimeLineWrapper>
                     <OuterDiv>
-                        <Card>
-                            <Info>
-                                <MainTitle>인천대학교 졸업</MainTitle>
-                                <SubTitle>무역 / 중어중국 전공</SubTitle>
-                            </Info>
-                        </Card>
-                        <Card>
-                            <Info>
-                                <MainTitle>온라인 광고 플랫폼사</MainTitle>
-                                <SubTitle>광고 효율 관리 / 기획</SubTitle>
-                            </Info>
-                        </Card>
-                        <Card>
-                            <Info>
-                                <MainTitle>엘리스 AI 트랙 4기 수료</MainTitle>
-                                <SubTitle>
-                                    엘리스 개발자 교육 과정 수료 완료
-                                </SubTitle>
-                            </Info>
-                        </Card>
-                        <Card>
-                            <Info>
-                                <MainTitle>엘리스 AI 트랙 4기 수료</MainTitle>
-                                <SubTitle>
-                                    엘리스 개발자 교육 과정 수료 완료
-                                </SubTitle>
-                            </Info>
-                        </Card>
-                        <Card>
-                            <Info>
-                                <MainTitle>엘리스 AI 트랙 4기 수료</MainTitle>
-                                <SubTitle>
-                                    엘리스 개발자 교육 과정 수료 완료
-                                </SubTitle>
-                            </Info>
-                        </Card>
+                        {TimeHistory.map((item, index) => (
+                            <Time index={index} item={item} />
+                        ))}
                     </OuterDiv>
                 </TimeLineWrapper>
                 <div>{"</TimeLine>"}</div>
@@ -58,7 +26,7 @@ export default TimeLine;
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 100%;
     height: 85vh;
@@ -73,49 +41,6 @@ const TimeLineWrapper = styled.div`
 `;
 
 const OuterDiv = styled.div`
-    border-left: 2px solid #333;
+    border-left: 4px solid #998f70;
     width: 100%;
-`;
-
-const Card = styled.div`
-    position: relative;
-    margin: 0 0 10px 20px;
-    padding: 0 10px 10px 10px;
-    background: #333;
-    color: gray;
-    border-radius: 8px;
-    word-break: keep-all;
-    white-space: pre-line;
-    word-wrap: break-word;
-    height: calc(60vh / 6);
-`;
-
-const Info = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-`;
-
-const MainTitle = styled.span`
-    color: orangered;
-    position: relative;
-    font-size: 0.6em;
-    ::after {
-        content: " ";
-        position: absolute;
-        width: 30px;
-        height: 30px;
-        background: url(${school});
-        background-color: #fff;
-        background-size: contain;
-        background-repeat: no-repeat;
-        border-radius: 999px;
-        left: -50px;
-        border: 3px solid orangered;
-        margin-top: 10px;
-    }
-`;
-
-const SubTitle = styled.span`
-    font-size: 0.5em;
 `;
