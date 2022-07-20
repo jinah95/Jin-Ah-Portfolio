@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import img1 from "./images/survivalcoding.png";
+import img2 from "./images/toreolre.png";
 import img3 from "./images/savetheearth.png";
 
-const imgArray = [img1, img3, img3];
+const imgArray = [img1, img2, img3];
 
 const Project = ({ project }) => {
     return (
@@ -44,11 +45,11 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 2vh 0;
+    margin: 2vh 0;
 `;
 const ProjectCard = styled.div`
     width: inherit;
-    height: 50vh;
+    height: 53.5vh;
     text-align: center;
     word-break: keep-all;
     display: flex;
@@ -56,11 +57,11 @@ const ProjectCard = styled.div`
     justify-content: space-around;
 `;
 const TextWrapper = styled.div`
-    width: inherit;
     height: 26vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    margin: 1vh 2vw;
 `;
 const ImgWrapper = styled.div`
     width: inherit;
@@ -70,29 +71,32 @@ const ImgWrapper = styled.div`
 
 const Img = styled.div`
     background-image: url(${(props) => props.photo});
-    width: 77vmin;
-    height: 32vmin;
-    background-size: contain;
+    width: 75vmin;
+    height: 28vmin;
+    background-size: cover;
     background-repeat: round;
 `;
 const ProjectTitle = styled.div`
     font-size: 0.9em;
     font-weight: bold;
+    color: orangered;
 `;
 const Summary = styled.div`
     font-size: 0.5em;
     word-break: keep-all;
 `;
 const Results = styled.div`
-    font-size: 0.4em;
+    font-size: 0.38em;
     word-break: keep-all;
+    color: #998f70;
 `;
 const Links = styled.div`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    height: 7.6vh;
-    background-color: yellow;
+    border-top: 1.8px solid orangered;
+    margin: 0 2vw;
+    height: 7.5vh;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
 `;

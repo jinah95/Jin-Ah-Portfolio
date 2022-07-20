@@ -55,7 +55,7 @@ const Projects = () => {
                             display: "flex",
                             flexDirection: "column",
                             justifyContent: "space-evenly",
-                            backgroundColor: "white",
+                            backgroundColor: "#ffefba8a",
                         }}
                     >
                         <Carousel slideIndex={slideIndex} />
@@ -92,5 +92,5 @@ const InfoMent = styled.div`
 `;
 const TargetPage = styled.span`
     font-weight: bold;
-    color: red;
+    color: orangered;
 `;
