@@ -35,18 +35,26 @@ const Container = styled.div`
 
 const InfoWrapper = styled.div`
     width: 100%;
-    height: 8vh;
+    height: 6.5vh;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    @media screen and (max-width: 680px) {
+        height: 5vh;
+        justify-content: center;
+    } ;
 `;
 
 const SkillWrapper = styled.div`
     width: 80vmin;
-    height: 60vh;
-    border: 2px solid black;
+    height: 70vh;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    padding: 0.5vh 0;
+    @media screen and (max-width: 680px) {
+        width: 85vmin;
+        height: 100vh;
+    } ;
 `;

@@ -2,31 +2,37 @@
     {
         "skillImg": "imgs/javascript.png",
         "percent": "75",
-        "comment": "기본기에 집중하고자 계속 공부하고 있습니다."
+        "comment": "기본기에 집중하고자 계속 공부하고 있습니다.",
+        "HashTag": ["⭐ 바닐라 JS 중요", "📚 공부 ing"]
     },
     {
         "skillImg": "imgs/react.png",
         "percent": "80",
-        "comment": "2차례의 프로젝트 동안, React를 사용하였고, 장점을 파악하고 hook을 적용해보려 노력하고 있습니다."
+        "comment": "2차례의 프로젝트 동안, React를 사용하였고, 장점을 파악하고 hook을 적용해보려 노력하고 있습니다.",
+        "HashTag": ["🧾 SPA의 강자", "👨‍👩‍👧‍👧 유저친화", "📚 공부 ing"]
     },
     {
         "skillImg": "imgs/next.png",
         "percent": "50",
-        "comment": "SSR을 구현하고, 1차례의 프로젝트 동안 사용하였지만 NEXT의 힘을 느꼈고 더 알아가고 있습니다."
+        "comment": "SSR을 구현하고, 1차례의 프로젝트 동안 사용하였지만 NEXT의 힘을 느꼈고 더 알아가고 있습니다.",
+        "HashTag": ["🏃‍♂️ SSR의 빠른속도", "😋 쉬운 page 라우팅", "📚 공부 ing"]
     },
     {
         "skillImg": "imgs/styledcomponents.png",
         "percent": "70",
-        "comment": "재사용성의 최강자, 사용법의 패턴을 익히면 쉽게 효율적으로 사용할 수 있습니다."
+        "comment": "재사용성의 최강자, 사용법의 패턴을 익히면 쉽게 효율적으로 사용할 수 있습니다.",
+        "HashTag": ["♻️ 재활용성", "📎 쉬운 패턴화", "📚 공부 ing"]
     },
     {
         "skillImg": "imgs/mui.png",
         "percent": "70",
-        "comment": "단기간의 프로젝트 동안 완성도를 위해 사용하였습니다. 기본은 CSS로 먼저 구현해보려 노력합니다."
+        "comment": "단기간의 프로젝트 동안 완성도를 위해 사용하였습니다. 기본은 CSS로 먼저 구현해보려 노력합니다.",
+        "HashTag": ["🕹️ 편리함", "⌚ 짧은 프로젝트에 용이"]
     },
     {
         "skillImg": "imgs/github.png",
         "percent": "60",
-        "comment": "협업툴의 강자, 낯설지만 그 힘을 알고 있습니다."
+        "comment": "협업툴의 강자, 낯설지만 그 힘을 알고 있습니다.",
+        "HashTag": ["👨‍👩‍👧‍👧 강력 협업툴", "🙄 어렵지만 적응 중", "🤼‍♀️ 팀플 경험"]
     }
 ]

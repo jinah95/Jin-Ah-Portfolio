@@ -3,15 +3,15 @@ import styled from "styled-components";
 
 const percentColor = (percent) => {
     if (percent <= 30) {
-        return "#F6FDA2";
+        return "#FFAD8B";
     } else if (30 < percent && percent <= 50) {
-        return "#A2EDFD";
+        return "#FF9166";
     } else if (50 < percent && percent <= 70) {
-        return "#ECB8FF";
+        return "#FF743F";
     } else if (70 < percent && percent <= 90) {
-        return "#FFB8CD";
+        return "#FF591A";
     } else {
-        return "#AAFDA2";
+        return "#FF4500";
     }
 };
 
@@ -30,6 +30,12 @@ const Skill = ({ item }) => {
                         </Text>
                     </Percent>
                 </PercentConstruct>
+                <HashTagWrapper>
+                    {" "}
+                    {item.HashTag.map((tag, index) => (
+                        <HashTag key={`tag-${index}`}># {tag}</HashTag>
+                    ))}
+                </HashTagWrapper>
                 {/* <div style={{ width: "30vw", wordBreak: "keep-all" }}>
                     <div style={{ fontSize: "0.32em" }}>{item.comment}</div>
                 </div> 뒤집으면 코멘트 나오게? */}
@@ -45,12 +51,22 @@ const Container = styled.div`
     justify-content: space-evenly;
     align-items: center;
     width: 80vmin;
-    height: 8vh;
+    height: 9.4vh;
+    margin: 0.5vh 0;
+    background-color: #ffefba8a;
+    border-radius: 20px;
+    @media screen and (max-width: 680px) {
+        width: 85vmin;
+        margin: 0.15vh 0;
+    } ;
 `;
 
 const SkillImg = styled.img`
-    width: 8.5vmin;
-    height: 8.5vmin;
+    width: 8vmin;
+    height: 8vmin;
+    border: 2px solid #998f70;
+    border-radius: 50px;
+    padding: 0.2vh 0.2vw;
 `;
 
 const PercentWrapper = styled.div`
@@ -58,27 +74,31 @@ const PercentWrapper = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
     width: 60vmin;
+    @media screen and (max-width: 680px) {
+        justify-content: space-evenly;
+    } ;
 `;
 
 const PercentConstruct = styled.div`
-    height: 4vh;
-    width: 60vmin;
-    border: 2px solid black;
+    height: 3.6vmin;
+    width: 58vmin;
+    border: 2px solid #998f70;
     border-radius: 20px;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 0.2vw;
+    padding-left: 0.34vw;
+    margin-top: 0.4vh;
 `;
 
 const Percent = styled.div`
-    height: 3vh;
+    height: 2.9vmin;
     width: ${(props) => (props.percent / 100) * 60}vmin;
-    border: 2px dashed black;
     border-radius: 18px;
     position: absolute;
-    background-color: ${(props) => props.color};
+    background: no-repeat
+        linear-gradient(to right, #ffc6ac 20%, ${(props) => props.color});
     line-height: 0.5em;
     display: flex;
     flex-direction: column;
@@ -88,6 +108,29 @@ const Percent = styled.div`
 const Text = styled.div`
     position: absolute;
     right: 0;
-    font-size: 0.5em;
+    font-size: 0.42em;
     padding-right: 0.5em;
+    @media screen and (max-width: 680px) {
+        font-size: 0.32em;
+    } ;
+`;
+
+const HashTagWrapper = styled.div`
+    display: flex;
+    word-break: keep-all;
+    height: 5vmin;
+    @media screen and (max-width: 680px) {
+        margin-bottom: 1.5vh;
+    } ;
+`;
+const HashTag = styled.span`
+    font-size: 0.33em;
+    padding-left: 0.4vw;
+    text-align: center;
+    word-break: keep-all;
+    @media screen and (max-width: 680px) {
+        font-size: 0.28em;
+        padding-left: 0.1vw;
+        padding-bottom: 0.1vh;
+    } ;
 `;
