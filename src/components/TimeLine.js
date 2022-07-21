@@ -11,7 +11,11 @@ const TimeLine = () => {
                 <TimeLineWrapper>
                     <OuterDiv>
                         {TimeHistory.map((item, index) => (
-                            <Time index={index} item={item} />
+                            <Time
+                                key={`Time-${index}`}
+                                index={index}
+                                item={item}
+                            />
                         ))}
                     </OuterDiv>
                 </TimeLineWrapper>
