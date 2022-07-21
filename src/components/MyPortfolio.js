@@ -148,6 +148,7 @@ const MyPortfolio = () => {
                         scrollIndex={scrollIndex}
                         outerDivRef={outerDivRef}
                         setScrollIndex={setScrollIndex}
+                        setNoDots={setNoDots}
                     />
                 )}
                 <Intro />

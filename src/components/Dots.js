@@ -2,7 +2,7 @@ import React from "react";
 
 const DIVIDER_HEIGHT = 5;
 
-const Dot = ({ num, scrollIndex, outerDivRef, setScrollIndex }) => {
+const Dot = ({ num, scrollIndex, outerDivRef, setScrollIndex, setNoDots }) => {
     const pageHeight = window.innerHeight;
     const dotsClickHandler = (e, num) => {
         e.preventDefault();
@@ -12,6 +12,7 @@ const Dot = ({ num, scrollIndex, outerDivRef, setScrollIndex }) => {
             behavior: "smooth",
         });
         setScrollIndex(num);
+        setNoDots(false);
     };
 
     return (
@@ -19,9 +20,10 @@ const Dot = ({ num, scrollIndex, outerDivRef, setScrollIndex }) => {
             style={{
                 width: 6,
                 height: 6,
-                border: "1px solid black",
+                border: "1px solid #998f70",
                 borderRadius: 999,
-                backgroundColor: scrollIndex === num ? "black" : "transparent",
+                backgroundColor:
+                    scrollIndex === num ? "orangered" : "transparent",
                 transitionDuration: "0.5s",
                 transition: "background-color 0.5s ease-in-out",
                 cursor: "pointer",
@@ -63,6 +65,7 @@ const Dots = ({ scrollIndex, outerDivRef, setScrollIndex, setNoDots }) => {
                     scrollIndex={scrollIndex}
                     outerDivRef={outerDivRef}
                     setScrollIndex={setScrollIndex}
+                    setNoDots={setNoDots}
                 ></Dot>
                 <Dot
                     num={4}
