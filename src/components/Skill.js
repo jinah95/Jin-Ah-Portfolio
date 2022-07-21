@@ -17,47 +17,95 @@ const percentColor = (percent) => {
 
 const Skill = ({ item }) => {
     return (
-        <Container>
-            <SkillImg src={item.skillImg} alt="logo192" />
-            <PercentWrapper>
-                <PercentConstruct>
-                    <Percent
-                        percent={item.percent}
-                        color={percentColor(item.percent)}
-                    >
-                        <Text>
-                            <div>{item.percent}%</div>
-                        </Text>
-                    </Percent>
-                </PercentConstruct>
-                <HashTagWrapper>
-                    {" "}
-                    {item.HashTag.map((tag, index) => (
-                        <HashTag key={`tag-${index}`}># {tag}</HashTag>
+        <FlipWrapper>
+            <Container id="card">
+                <FrontSide>
+                    <SkillImg src={item.skillImg} alt="logo192" />
+                    <PercentWrapper>
+                        <PercentConstruct>
+                            <Percent
+                                percent={item.percent}
+                                color={percentColor(item.percent)}
+                            >
+                                <Text>
+                                    <div>{item.percent}%</div>
+                                </Text>
+                            </Percent>
+                        </PercentConstruct>
+                        <HashTagWrapper>
+                            {" "}
+                            {item.HashTag.map((tag, index) => (
+                                <HashTag key={`tag-${index}`}># {tag}</HashTag>
+                            ))}
+                        </HashTagWrapper>
+                    </PercentWrapper>
+                </FrontSide>
+                <BackSide>
+                    <SkillName>" {item.name} "</SkillName>
+                    {item.comment.map((a, index) => (
+                        <Comment key={`comment-${index}`}>{a}</Comment>
                     ))}
-                </HashTagWrapper>
-                {/* <div style={{ width: "30vw", wordBreak: "keep-all" }}>
-                    <div style={{ fontSize: "0.32em" }}>{item.comment}</div>
-                </div> 뒤집으면 코멘트 나오게? */}
-            </PercentWrapper>
-        </Container>
+                </BackSide>
+            </Container>
+        </FlipWrapper>
     );
 };
 
 export default Skill;
-
-const Container = styled.div`
+const FlipWrapper = styled.div`
+    width: 80vmin;
+    height: 9.4vh;
+    margin: 0.4vh 0;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 80vmin;
-    height: 9.4vh;
-    margin: 0.5vh 0;
-    background-color: #ffefba8a;
-    border-radius: 20px;
+    &:hover #card {
+        transform: rotateY(180deg);
+    }
+    &:click #card {
+        transform: rotateY(180deg);
+    }
+`;
+
+const Container = styled.div`
+    position: relative;
+    transition: 0.7s ease-in-out 0.05s;
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
     @media screen and (max-width: 680px) {
         width: 85vmin;
         margin: 0.15vh 0;
+    } ;
+`;
+
+const FrontSide = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #ffefba8a;
+    border-radius: 20px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+`;
+
+const BackSide = styled.div`
+    position: absolute;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    background-color: #ffc6ac;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    word-break: break-all:
+    @media screen and (max-width: 680px) {
+        text-align: center;
     } ;
 `;
 
@@ -129,8 +177,26 @@ const HashTag = styled.span`
     text-align: center;
     word-break: keep-all;
     @media screen and (max-width: 680px) {
-        font-size: 0.28em;
+        font-size: 0.25em;
         padding-left: 0.1vw;
-        padding-bottom: 0.1vh;
+        padding-bottom: 0.2vh;
+    } ;
+`;
+
+const SkillName = styled.div`
+    font-size: 0.38em;
+    font-weight: bold;
+    color: #ff4500;
+    @media screen and (max-width: 680px) {
+        display: none;
+    } ;
+`;
+
+const Comment = styled.div`
+    font-size: 0.33em;
+    word-break: keep-all;
+    @media screen and (max-width: 680px) {
+        font-size: 0.31em;
+        text-align: center;
     } ;
 `;

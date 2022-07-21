@@ -9,13 +9,19 @@ const Skills = () => {
             <Container>
                 <div>{"<Skills>"}</div>
                 <InfoWrapper>
-                    <img src="imgs/infoBar.png" alt="InfoBar" />
+                    <InfoWebComment>
+                        ※ 마우스 오버 시, 상세설명이 나타납니다.
+                    </InfoWebComment>
+                    <InfoImg src="imgs/infoBar.png" alt="InfoBar" />
                 </InfoWrapper>
                 <SkillWrapper>
                     {mySkills.map((item, index) => (
                         <Skill key={`skill-${index}`} item={item} />
                     ))}
                 </SkillWrapper>
+                <InfoMobileComment>
+                    ※ 클릭 시, 상세설명이 나타납니다.
+                </InfoMobileComment>
                 <div>{"</Skills>"}</div>
             </Container>
         </div>
@@ -37,11 +43,33 @@ const InfoWrapper = styled.div`
     width: 100%;
     height: 6.5vh;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     @media screen and (max-width: 680px) {
-        height: 5vh;
-        justify-content: center;
+        height: 4vh;
+        flex-direction: column;
+        justify-content: flex-end;
+    } ;
+`;
+const InfoImg = styled.img`
+    @media screen and (max-width: 680px) {
+        height: 3.8vh;
+    } ;
+`;
+const InfoWebComment = styled.div`
+    font-size: 0.33em;
+    color: orangered;
+    padding-left: 0.5vw;
+    @media screen and (max-width: 680px) {
+        display: none;
+    } ;
+`;
+const InfoMobileComment = styled.div`
+    display: none;
+    font-size: 0.3em;
+    color: orangered;
+    @media screen and (max-width: 680px) {
+        display: flex;
     } ;
 `;
 
@@ -55,6 +83,6 @@ const SkillWrapper = styled.div`
     padding: 0.5vh 0;
     @media screen and (max-width: 680px) {
         width: 85vmin;
-        height: 100vh;
+        height: 58vh;
     } ;
 `;
