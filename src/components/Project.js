@@ -7,33 +7,46 @@ import img4 from "./images/myPortfolio.png";
 
 const imgArray = [img1, img2, img3, img4];
 
-const Project = ({ project }) => {
+const Project = ({ project, front, back }) => {
     return (
         <Wrapper>
-            <ProjectCard>
-                <ImgWrapper>
-                    <Img photo={imgArray[project.img - 1]} />
-                </ImgWrapper>
-                <TextWrapper>
-                    <ProjectTitle>{project.title}</ProjectTitle>
-                    <Summary>{project.summary}</Summary>
-                    <Results>
-                        {">"} {project.results}
-                    </Results>
-                </TextWrapper>
-            </ProjectCard>
-            <Links>
-                <Icon
-                    src="imgs/github.png"
-                    alt="github"
-                    onClick={() => window.open(`${project.github}`)}
-                />
-                <Icon
-                    src="imgs/demo.png"
-                    alt="demo"
-                    onClick={() => window.open(`${project.demo}`)}
-                />
-            </Links>
+            {!back && (
+                <ProjectCard>
+                    <ImgWrapper>
+                        <Img photo={imgArray[project.img - 1]} />
+                    </ImgWrapper>
+                    <TextWrapper>
+                        <ProjectTitle>{project.title}</ProjectTitle>
+                        <Summary>{project.summary}</Summary>
+                        <Duration>{project.duration}</Duration>
+                        <SkillWrapper>
+                            {project.skills.map((skill, index) => (
+                                <Skill key={`pro-skill-${index}`}>
+                                    {skill}
+                                </Skill>
+                            ))}
+                        </SkillWrapper>
+                    </TextWrapper>
+                </ProjectCard>
+            )}
+            {!front && (
+                <ProjectBackCard>
+                    <TextWrapper>
+                        <Results>
+                            {" "}
+                            <PointTitle>{"👉 전체 기능 👈"} </PointTitle>{" "}
+                            <Contents>{project.results}</Contents>
+                            <PointTitle>{"👉 구현 기능 👈"} </PointTitle>{" "}
+                            {project.myWorks.map((item, index) => (
+                                <MyWorks>
+                                    <Page>[{item.page}] ▶ </Page>
+                                    <PageDetails> {item.details}</PageDetails>
+                                </MyWorks>
+                            ))}
+                        </Results>
+                    </TextWrapper>
+                </ProjectBackCard>
+            )}
         </Wrapper>
     );
 };
@@ -51,11 +64,20 @@ const Wrapper = styled.div`
 const ProjectCard = styled.div`
     width: inherit;
     height: 53.5vh;
-    text-align: center;
     word-break: keep-all;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    text-align: center;
+`;
+const ProjectBackCard = styled.div`
+    width: inherit;
+    height: 53.5vh;
+    word-break: keep-all;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: left;
 `;
 const TextWrapper = styled.div`
     height: 26vh;
@@ -68,6 +90,7 @@ const ImgWrapper = styled.div`
     width: inherit;
     display: flex;
     justify-content: center;
+    padding-top: 1.5vh;
 `;
 
 const Img = styled.div`
@@ -81,29 +104,95 @@ const ProjectTitle = styled.div`
     font-size: 0.9em;
     font-weight: bold;
     color: orangered;
+    @media screen and (max-width: 680px) {
+        font-size: 0.7em;
+    } ;
 `;
 const Summary = styled.div`
     font-size: 0.5em;
     word-break: keep-all;
+    @media screen and (max-width: 680px) {
+        font-size: 0.35em;
+    } ;
 `;
 const Results = styled.div`
-    font-size: 0.38em;
-    word-break: keep-all;
-    color: #998f70;
-`;
-const Links = styled.div`
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    border-top: 1.8px solid orangered;
-    margin: 0 2vw;
-    height: 7.5vh;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
+    font-size: 0.32em;
+    word-break: break-all;
+    padding: 0 1.5vw;
+    @media screen and (max-width: 680px) {
+        font-size: 0.28em;
+    } ;
 `;
 
-const Icon = styled.img`
-    width: inherit;
-    height: 4.3vh;
-    cursor: pointer;
+const Duration = styled.div`
+    font-size: 0.35em;
+    color: #998f70;
+    @media screen and (max-width: 680px) {
+        font-size: 0.32em;
+    } ;
+`;
+
+const PointTitle = styled.span`
+    font-size: 1.2em;
+    font-weight: bold;
+`;
+
+const Contents = styled.div`
+    word-break: keep-all;
+    border-bottom: 1.8px solid orangered;
+`;
+
+const SkillWrapper = styled.div`
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    white-space: normal;
+`;
+
+const Skill = styled.div`
+    width: auto;
+    height: 3vh;
+    line-height: 3vh;
+    font-size: 0.3em;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #ffefba8a;
+    padding: 0 1vw;
+    margin: 0 0.3vw;
+    color: royalblue;
+    border: 1px solid #998f70;
+    white-space: nowrap;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    @media screen and (max-width: 680px) {
+        height: 5vh;
+        line-height: 5vh;
+        font-size: 0.28em;
+    } ;
+`;
+
+const MyWorks = styled.div`
+    display: grid;
+    grid-template-row: 1fr 3fr;
+`;
+
+const Page = styled.div`
+    word-wrap: break-word;
+    word-break: keep-all;
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: 1.1em;
+    @media screen and (max-width: 680px) {
+        font-size: 0.9em;
+    } ;
+`;
+const PageDetails = styled.div`
+    word-wrap: break-word;
+    word-break: keep-all;
+    font-size: 1em;
+    @media screen and (max-width: 680px) {
+        font-size: 0.8em;
+    } ;
 `;

@@ -5,12 +5,14 @@ import project from "../projects.json";
 
 const Projects = () => {
     const [slideIndex, setSlideIndex] = useState(1);
+    const [click, setClick] = useState(false);
 
     const nextSlide = (idx) => {
         if (slideIndex === project.length) {
             return;
         }
         setSlideIndex(slideIndex + 1);
+        setClick(false);
     };
 
     const prevSlide = () => {
@@ -18,6 +20,7 @@ const Projects = () => {
             return;
         }
         setSlideIndex(slideIndex - 1);
+        setClick(false);
     };
 
     return (
@@ -34,36 +37,36 @@ const Projects = () => {
             >
                 {" "}
                 <div>{"<Projects>"}</div>
-                <div
-                    style={{
-                        width: "80vMin",
-                        height: "63vh",
-                        borderRadius: "20px",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                    }}
-                >
+                <ProjectCardWrapper>
                     <ArrowLeft onClick={prevSlide}>
-                        <img src="imgs/arrow-left.png" alt="arrow-left" />
+                        <ArrowImg src="imgs/arrow-left.png" alt="arrow-left" />
                     </ArrowLeft>
-                    <div
-                        style={{
-                            width: "80vMin",
-                            height: "63vh",
-                            borderRadius: "20px",
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "space-evenly",
-                            backgroundColor: "#ffefba8a",
-                        }}
-                    >
-                        <Carousel slideIndex={slideIndex} />
-                    </div>
+                    <CarouselWrapper>
+                        <InfoWebComment>
+                            ※ 클릭 시, 상세설명이 나타납니다.
+                        </InfoWebComment>
+                        <Carousel
+                            slideIndex={slideIndex}
+                            click={click}
+                            setClick={setClick}
+                        />
+                    </CarouselWrapper>
                     <ArrowRight onClick={nextSlide}>
-                        <img src="imgs/arrow-left.png" alt="arrow-left" />
+                        <ArrowImg src="imgs/arrow-left.png" alt="arrow-left" />
                     </ArrowRight>
-                </div>
+                </ProjectCardWrapper>
+                <Links>
+                    <Icon
+                        src="imgs/github.png"
+                        alt="github"
+                        onClick={() => window.open(`${project.github}`)}
+                    />
+                    <Icon
+                        src="imgs/demo.png"
+                        alt="demo"
+                        onClick={() => window.open(`${project.demo}`)}
+                    />
+                </Links>
                 <InfoMent>
                     - <TargetPage>{slideIndex}</TargetPage> / {project.length} -
                 </InfoMent>
@@ -75,16 +78,41 @@ const Projects = () => {
 
 export default Projects;
 
+const ProjectCardWrapper = styled.div`
+    width: 80vmin;
+    height: 57vh;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media screen and (max-width: 680px) {
+        height: 50vh;
+    } ;
+`;
+
+const CarouselWrapper = styled.div`
+    width: 80vmin;
+    height: 57vh;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    @media screen and (max-width: 680px) {
+        height: 50vh;
+    } ;
+`;
+
 const ArrowLeft = styled.div`
     cursor: pointer;
+`;
+const ArrowImg = styled.img`
+    @media screen and (max-width: 680px) {
+        width: 7vw;
+    } ;
 `;
 const ArrowRight = styled.div`
     transform: scaleX(-1);
     cursor: pointer;
-`;
-
-const Comment = styled.span`
-    font-size: 0.3em;
 `;
 
 const InfoMent = styled.div`
@@ -93,4 +121,36 @@ const InfoMent = styled.div`
 const TargetPage = styled.span`
     font-weight: bold;
     color: orangered;
+`;
+
+const InfoWebComment = styled.div`
+    font-size: 0.35em;
+    color: orangered;
+    padding-left: 0.5vw;
+`;
+const Links = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1vh;
+    padding: 0.5vh 0;
+    height: 5vh;
+    width: 80vmin;
+    border-radius: 20px;
+    background-color: #ffefba8a;
+    @media screen and (max-width: 680px) {
+        height: 3vh;
+        margin-top: 4vh;
+    } ;
+`;
+
+const Icon = styled.img`
+    width: 4.5vmin;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.1);
+    }
+    @media screen and (max-width: 680px) {
+        width: 4vmin;
+    } ;
 `;

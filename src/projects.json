@@ -3,39 +3,100 @@
         "img": "1",
         "title": "Our Portfolio",
         "summary": "포트폴리오 공유 서비스",
+        "duration": "2022.03.15 - 03.26",
         "results": [
-            "유저 포트폴리오 네트워크 ",
-            "경력 / 기술스택 / 프로젝트 / 수상경력 / 학력 / 자격증"
+            "유저 포트폴리오 네트워크 /",
+            " 경력 / 기술스택 / 프로젝트 / 수상경력 / 학력 / 자격증"
         ],
         "github": "https://github.com/jinah95/Web-Portfolio",
-        "demo": "https://www.notion.so/6-c42909b4b5af4851afa0239a873088c1"
+        "demo": "https://www.notion.so/6-c42909b4b5af4851afa0239a873088c1",
+        "skills": ["React", "JavaScript", " MUI"],
+        "myWorks": [
+            {
+                "page": "유저MVP",
+                "details": "유저 정보 수정 / 정보 공개 토글 기능 / 좋아요 기능"
+            },
+            {
+                "page": "수상 MVP",
+                "details": "수상이력 추가 & 편집 & 삭제 구현"
+            },
+            {
+                "page": "경력 MVP",
+                "details": "경력이력 추가 & 편집 & 삭제 구현, Timeline 형태 적용"
+            }
+        ]
     },
     {
         "img": "2",
         "title": "또래올래",
         "summary": "판매 데이터 분석기반의 성별/연령에 따른 추천 E-Commerce 서비스",
+        "duration": "2022.04.19 - 05.07",
         "results": [
             "연령/성별 정보에 따른 상품 추천 / 상품 조회 및 검색 / 회원등록 및 회원 관리 / 상품 즐겨찾기 / 장바구니 / 상품 주문 및 결제 / 구글 로그인 / 상품 검색"
         ],
         "github": "http://elice-kdt-ai-4th-team12.elicecoding.com/",
-        "demo": "https://www.notion.so/12-Conding-Soon-a3861954bac544c5b5f06c2c0ad273ce"
+        "demo": "https://www.notion.so/12-Conding-Soon-a3861954bac544c5b5f06c2c0ad273ce",
+        "skills": ["React", "JavaScript", "MUI", "Styled-Components"],
+        "myWorks": [
+            {
+                "page": "연령/성별에 따른 상품 추천",
+                "details": "추천 15개 상품 중 5개 랜덤추출 (로그인 유저 대상)"
+            },
+            {
+                "page": "마이페이지",
+                "details": "주문내역 / 좋아요 내역 / 미결제 주문 결제 연결 / 상품 페이지 연결"
+            },
+            { "page": "소셜로그인", "details": "구글 소셜로그인 구현" },
+            {
+                "page": "회원정보 관리",
+                "details": "회원 정보 수정( 소셜 로그인 유저의 상품 추천을 위해, 추가 정보 수집 & 일반 회원 정보 수정 기능 분기 처리하여 구현)"
+            },
+            {
+                "page": "레이아웃 및 소개페이지",
+                "details": "Header / Main / Ads / Footer (홈 화면 구현), 소개페이지 데이터 분석 그래프 일부 구현"
+            }
+        ]
     },
     {
         "img": "3",
         "title": "구해줘, 지구",
         "summary": "인공지능 활용 폐기물 이미지 인식을 통한 올바른 분리배출 방법 안내 서비스",
+        "duration": "2022.05.31 - 07.02",
         "results": [
             "분리배출 하러가기 / 우리동네 대형폐기물 신고하기 / 퀴즈 풀러가기 / 마이페이지(시각화) 및 회원정보 수정/ 중고마켓 / 소셜로그인 / 구글 로그인 / 분리 배출 정보 다 보기"
         ],
         "github": "https://github.com/jinah95/Save-the-Earth",
-        "demo": "https://www.notion.so/9-9690b4b481e84d7c938e881eeaa7221e"
+        "demo": "https://www.notion.so/9-9690b4b481e84d7c938e881eeaa7221e",
+        "skills": ["NextJS", "TypeScript", "Styled-Components", "MUI"],
+        "myWorks": [
+            {
+                "page": "분리배출 하러가기",
+                "details": "이미지 drag & drop / 모바일 camera / Object Detection & 이미지 base64 / carousel / pagination "
+            },
+            {
+                "page": "마이페이지",
+                "details": "씨앗~나무 성장 애니메이션 적용(포인트 구간 별 분기 처리) / 프로필, 닉네임 회원정보 수정 기능"
+            },
+            {
+                "page": "중고마켓",
+                "details": "무한스크롤구현(windowing 적용) / SSR 구현(getServerSideProps 사용) / 게시글 작성 위즈윅 에디터 적용(react-quill)"
+            },
+            { "page": "로그인", "details": "카카오 소셜 로그인" },
+            {
+                "page": "분리배출 정보 다 보기",
+                "details": "셀렉박스 이용 분리배출 정보 안내"
+            }
+        ]
     },
     {
         "img": "4",
         "title": "개인 포트폴리오",
         "summary": "프론트엔드 개발자, 박진아 입니다.",
+        "duration": "2022.07.11 - 07.22",
         "results": ["Intro / Skills / Projects / Timeline / footer "],
         "github": "https://github.com/jinah95/Save-the-Earth",
-        "demo": "https://www.notion.so/Jin-ah-s-Portfolio-0f732af7c2b74010a15ef350aba974c9"
+        "demo": "https://www.notion.so/Jin-ah-s-Portfolio-0f732af7c2b74010a15ef350aba974c9",
+        "skills": ["React", "JavaScript", "Styled-Components"],
+        "myWorks": []
     }
 ]
