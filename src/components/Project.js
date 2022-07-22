@@ -38,7 +38,7 @@ const Project = ({ project, front, back }) => {
                             <Contents>{project.results}</Contents>
                             <PointTitle>{"👉 구현 기능 👈"} </PointTitle>{" "}
                             {project.myWorks.map((item, index) => (
-                                <MyWorks>
+                                <MyWorks key={`myworks-${index}`}>
                                     <Page>[{item.page}]</Page>
                                     <PageDetails> {item.details}</PageDetails>
                                 </MyWorks>
