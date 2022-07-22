@@ -89,6 +89,7 @@ const FrontSide = styled.div`
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
+    white-space: wrap;
 `;
 
 const BackSide = styled.div`
@@ -189,7 +190,7 @@ const SkillName = styled.div`
     color: #ff4500;
     @media screen and (max-width: 680px) {
         display: none;
-    } ;
+    }
 `;
 
 const Comment = styled.div`

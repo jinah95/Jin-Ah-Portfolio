@@ -39,7 +39,7 @@ const Project = ({ project, front, back }) => {
                             <PointTitle>{"👉 구현 기능 👈"} </PointTitle>{" "}
                             {project.myWorks.map((item, index) => (
                                 <MyWorks>
-                                    <Page>[{item.page}] ▶ </Page>
+                                    <Page>[{item.page}]</Page>
                                     <PageDetails> {item.details}</PageDetails>
                                 </MyWorks>
                             ))}
