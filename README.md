@@ -1,6 +1,7 @@
 # Hello! I 'm Frontend engineer Jin-AH, Park 
 
-This project is my-portfolio.
+![MYLOGO](https://user-images.githubusercontent.com/97212459/180608203-a0df76ff-3ba8-477e-933b-1ddc416d3af1.png) <br/>
+### `This project is my-portfolio.`
 
 ## Available Scripts
 
