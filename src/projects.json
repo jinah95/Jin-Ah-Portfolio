@@ -94,9 +94,30 @@
         "summary": "프론트엔드 개발자, 박진아 입니다.",
         "duration": "2022.07.11 - 07.22",
         "results": ["Intro / Skills / Projects / Timeline / footer "],
-        "github": "https://github.com/jinah95/Save-the-Earth",
+        "github": "https://github.com/jinah95/Jin-Ah-Portfolio",
         "demo": "https://www.notion.so/Jin-ah-s-Portfolio-0f732af7c2b74010a15ef350aba974c9",
         "skills": ["React", "JavaScript", "Styled-Components"],
-        "myWorks": []
+        "myWorks": [
+            {
+                "page": "<Intro>",
+                "details": "(전제) Full Page 구현 / (WEB) Drag&Drop / animation "
+            },
+            {
+                "page": "<Skills>",
+                "details": "Flip 적용 / 기술 사용력 % 구현"
+            },
+            {
+                "page": "<Projects>",
+                "details": "Flip 적용 / Carousel 구현"
+            },
+            {
+                "page": "<Timeline>",
+                "details": "Timeline 형태 구현"
+            },
+            {
+                "page": "<Footer>",
+                "details": "contact 링크 연결 "
+            }
+        ]
     }
 ]

@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import Carousel from "./Carousel";
 import styled from "styled-components";
 import project from "../projects.json";
+import { useMediaQuery } from "react-responsive";
 
 const Projects = () => {
+    const isMobile = useMediaQuery({ query: "(max-width: 680px)" });
+
     const [slideIndex, setSlideIndex] = useState(1);
     const [click, setClick] = useState(false);
 
@@ -71,6 +74,11 @@ const Projects = () => {
                     - <TargetPage>{slideIndex}</TargetPage> / {project.length} -
                 </InfoMent>
                 <div>{"</Projects>"}</div>
+                {isMobile && (
+                    <InfoWebComment className="isMobile">
+                        ↓ 아래로 내리시면 다음페이지로 이동합니다. ↓
+                    </InfoWebComment>
+                )}
             </div>
         </div>
     );
@@ -127,6 +135,9 @@ const InfoWebComment = styled.div`
     font-size: 0.35em;
     color: orangered;
     padding-left: 0.5vw;
+    &.isMobile {
+        font-size: 0.3em;
+    }
 `;
 const Links = styled.div`
     display: flex;

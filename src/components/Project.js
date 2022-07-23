@@ -40,7 +40,7 @@ const Project = ({ project, front, back }) => {
                             {project.myWorks.map((item, index) => (
                                 <MyWorks key={`myworks-${index}`}>
                                     <Page>[{item.page}]</Page>
-                                    <PageDetails> {item.details}</PageDetails>
+                                    <PageDetails> - {item.details}</PageDetails>
                                 </MyWorks>
                             ))}
                         </Results>
