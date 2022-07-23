@@ -158,15 +158,18 @@ const Footer = () => {
                                 <br />
                                 네! <br />
                                 <HightLight>
-                                    전 이제 <b>프론트엔드 개발자</b> 로 나아가고
-                                    싶습니다!
+                                    전 이제{" "}
+                                    <PointTitle className="comment">
+                                        프론트엔드 개발자
+                                    </PointTitle>{" "}
+                                    로 나아가고 싶습니다!
                                 </HightLight>
                                 <HightLight>
                                     저의{" "}
-                                    <b>
+                                    <PointTitle className="comment">
                                         성실함 꼼꼼함 {"&"} 유저의 편의성과
                                         최적화에 대한 갈망
-                                    </b>{" "}
+                                    </PointTitle>{" "}
                                 </HightLight>
                                 <HightLight>
                                     무한히 성장할 저를 믿고 이끌어줄 회사를 찾고
@@ -241,13 +244,17 @@ const HalfWrapper = styled.div`
 const WrapperTitle = styled.div`
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
+    word-break: keep-all;
 `;
 
 const PointTitle = styled.div`
     font-size: 1.3em;
     margin: 0 0.4vw;
     color: orangered;
+    &.comment {
+        font-size: 1.1em;
+    }
 `;
 
 const NameTitle = styled.div`
@@ -299,14 +306,17 @@ const MainTitle = styled.div`
     word-break: keep-all;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     font-size: 0.7em;
     @media screen and (max-width: 680px) {
         width: 80vmin;
         margin: 1.2vh 0;
-        height: 20vmin;
-        font-size: 0.6em;
+        font-size: 0.7em;
     } ;
+    @media screen and (max-width: 380px) {
+        font-size: 0.65em;
+    }
+} ;
 `;
 const MentionsWrapper = styled.div`
     height: 47vh;
@@ -322,4 +332,5 @@ const MentionsWrapper = styled.div`
 
 const HightLight = styled.span`
     background: linear-gradient(to top, #ffefba 50%, transparent 50%);
+    display: flex;
 `;
