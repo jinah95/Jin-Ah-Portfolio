@@ -8,14 +8,23 @@ const TimeLine = () => {
         <div className="inner" style={{ fontSize: "3.5em" }}>
             <Container>
                 <div>{"<TimeLine>"}</div>
+
                 <TimeLineWrapper>
                     <OuterDiv>
                         {TimeHistory.map((item, index) => (
-                            <Time
-                                key={`Time-${index}`}
-                                index={index}
-                                item={item}
-                            />
+                            <>
+                                <Direction>
+                                    <DirectionImg
+                                        src="imgs/upDirection.png"
+                                        alt="up"
+                                    />
+                                </Direction>
+                                <Time
+                                    key={`Time-${index}`}
+                                    index={index}
+                                    item={item}
+                                />
+                            </>
                         ))}
                     </OuterDiv>
                 </TimeLineWrapper>
@@ -42,9 +51,32 @@ const TimeLineWrapper = styled.div`
     width: 80vmin;
     padding: 20px;
     height: 60vh;
+    display: flex;
+    align-items: center;
 `;
 
 const OuterDiv = styled.div`
-    border-left: 4px solid #998f70;
+    border-left: 4px solid orangered;
     width: 100%;
+    @media screen and (max-width: 680px) {
+        border-left: 3.5px solid orangered;
+    }
+`;
+
+const Direction = styled.div`
+    color: orangered;
+    height: 3vh;
+    margin-left: 35px;
+    display: flex;
+    justify-content: center;
+    @media screen and (max-width: 680px) {
+        height: 2vh;
+    }
+`;
+
+const DirectionImg = styled.img`
+    height: 3vh;
+    @media screen and (max-width: 680px) {
+        height: 2vh;
+    }
 `;
