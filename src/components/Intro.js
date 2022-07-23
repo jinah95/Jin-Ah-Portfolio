@@ -113,21 +113,46 @@ const Intro = () => {
                                 style={{
                                     width: "80%",
                                     height: "6vh",
-                                    borderBottom: "2px solid black",
                                     display: "flex",
                                     justifyContent: "flex-end",
                                     alignItems: "center",
+                                    backgroundColor: "#ffefba8a",
+                                    borderRadius: "20px",
                                 }}
                             >
-                                <img
-                                    src="imgs/search.png"
-                                    alt="search"
-                                    style={{ height: "3.5vh" }}
-                                />
+                                <div
+                                    style={{
+                                        borderBottom: "2px dashed orangered",
+                                        height: "6vh",
+                                        width: "90%",
+                                        margin: "0 0.5vw",
+                                    }}
+                                ></div>
+                                <div
+                                    style={{
+                                        height: "6vh",
+                                        backgroundColor: "orangered",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        padding: "0 1.5vw",
+                                        borderRadius: "20px",
+                                        fontSize: "1.2em",
+                                    }}
+                                >
+                                    <img
+                                        src="imgs/search.png"
+                                        alt="search"
+                                        style={{
+                                            height: "4vh",
+                                        }}
+                                    />
+                                    {/* 🔍 */}
+                                </div>
                             </div>
                             {droppedArray !== 4 && (
                                 <InfoMent>
-                                    ※ 이모지를 검색 박스 안으로 넣어보세요! .
+                                    ※ 떠다니는 이모지를 검색 박스 안으로
+                                    넣어보세요! .
                                 </InfoMent>
                             )}
                             <DropZone
@@ -158,7 +183,7 @@ const Intro = () => {
                             <span
                                 style={{
                                     height: "8vh",
-                                    fontSize: "0.6em",
+                                    fontSize: "0.45em",
                                     animation: "none",
                                 }}
                             >
@@ -210,25 +235,48 @@ const Intro = () => {
                 <AllContainers>
                     {" "}
                     <MainContainer>
-                        <div style={{ height: "8vh", fontSize: "3.5em" }}>
+                        <div style={{ height: "8vh", fontSize: "3.2em" }}>
                             " 저는{" "}
                         </div>
                         <SearchContainer>
                             <div
                                 style={{
-                                    width: "80%",
+                                    width: "85%",
                                     height: "6vh",
-                                    borderBottom: "2px solid black",
                                     display: "flex",
                                     justifyContent: "flex-end",
                                     alignItems: "center",
+                                    backgroundColor: "#ffefba8a",
+                                    borderRadius: "20px",
                                 }}
                             >
-                                <img
-                                    src="imgs/search.png"
-                                    alt="search"
-                                    style={{ height: "3.5vh" }}
-                                />
+                                <div
+                                    style={{
+                                        borderBottom: "2px dashed orangered",
+                                        height: "6vh",
+                                        width: "90%",
+                                        margin: "0 1.2vw",
+                                    }}
+                                ></div>
+                                <div
+                                    style={{
+                                        height: "6vh",
+                                        backgroundColor: "orangered",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        padding: "0 1.5vw",
+                                        borderRadius: "20px",
+                                        fontSize: "1.2em",
+                                    }}
+                                >
+                                    <img
+                                        src="imgs/search.png"
+                                        alt="search"
+                                        style={{
+                                            height: "2.8vh",
+                                        }}
+                                    />
+                                </div>
                             </div>
                             <DropZone className="isMobile">
                                 <DraggableItem id="1" className="isMobile">
@@ -267,9 +315,28 @@ const Intro = () => {
                         <div style={{ height: "8vh", fontSize: "2.5em" }}>
                             프론트엔드 개발자
                         </div>
-                        <div style={{ height: "10vh", fontSize: "3.5em" }}>
-                            박 진 아 입니다"{" "}
-                        </div>
+                        <MyName>
+                            <Name className={droppedArray === 4 ? "name1" : ""}>
+                                박{" "}
+                            </Name>
+                            <Name className={droppedArray === 4 ? "name2" : ""}>
+                                {" "}
+                                진{" "}
+                            </Name>
+                            <Name className={droppedArray === 4 ? "name3" : ""}>
+                                아{" "}
+                            </Name>
+                            <span
+                                style={{
+                                    height: "8vh",
+                                    fontSize: "0.65em",
+                                    animation: "none",
+                                }}
+                            >
+                                입니다.
+                            </span>
+                            "{" "}
+                        </MyName>
                     </MainContainer>
                 </AllContainers>
             )}
@@ -289,7 +356,7 @@ const AllContainers = styled.div`
 `;
 
 const DropZone = styled.div`
-    width: 82%;
+    width: 80%;
     height: 40vh;
     line-height: 40vh;
     text-align: center;
@@ -303,13 +370,14 @@ const DropZone = styled.div`
     &.isDone {
         justify-content: center;
         border: none;
-        background-color: #ffa69e;
+        background-color: orangered;
         padding: 0.1vh 0.5vw;
     }
     &.isMobile {
         justify-content: center;
         background-color: #ffefba8a;
         border: none;
+        width: 85%;
     }
 `;
 const InfoMent = styled.span`
@@ -341,6 +409,7 @@ const DraggableItem = styled.div`
     font-size: 3.5em;
     border-radius: 50px;
     position: absolute;
+    cursor: pointer;
     top: ${(props) => props.topFar}vh;
     left: ${(props) => props.leftFar}vw;
     animation: motion 0.5s linear 0s infinite alternate;
@@ -364,6 +433,7 @@ const DraggableItem = styled.div`
         justify-content: center;
         font-size: 2.5em;
         margin: 0.15vh 0;
+        cursor: pointer;
         background-color: #ffefba8a;
         @media screen and (max-width: 800px) {
             font-size: 2em;
@@ -387,18 +457,20 @@ const DraggableItem = styled.div`
         border: 1.8px solid orangered;
         margin: 0.15vh 0;
         animation: none;
+        cursor: auto;
     }
     @media screen and (max-width: 340px) {
         font-size: 1.2em;
         white-space: nowrap;
         animation: none;
+        cursor: auto;
     }
 `;
 
 const SearchContainer = styled.div`
     width: 80%;
     height: 100vh;
-    border: 2px solid black;
+    border: 1.8px solid orangered;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -425,36 +497,40 @@ const DropedComment = styled.div`
 `;
 const MyName = styled.div`
     height: 11vh;
-    font-size: 3.6em;
+    font-size: 4.3em;
+    @media screen and (max-width: 680px) {
+        font-size: 3em;
+    }
 `;
 
 const Name = styled.span`
     font-weight: bold;
     &.name1 {
-        animation: gradient 1.5s linear 0.05s 5;
+        animation: gradient 0.6s ease-in-out 0s 5;
         @keyframes gradient {
             100% {
-                background: linear-gradient(to left, #861657, #ffa69e);
+                background: linear-gradient(to bottom, #ff4500, #ffc6ac);
                 color: transparent;
                 -webkit-background-clip: text;
             }
         }
     }
     &.name2 {
-        animation: gradient 1.5s linear 0.3s 5;
+        animation: gradient 0.6s ease-in-out 0s 5;
         @keyframes gradient {
             100% {
-                background: linear-gradient(to left, #861657, #ffa69e);
+                background: linear-gradient(to bottom, #ff4500, #ffc6ac);
                 color: transparent;
                 -webkit-background-clip: text;
             }
         }
     }
     &.name3 {
-        animation: gradient 1.5s linear 0.5s 5;
+        animation: gradient 0.6s ease-in-out 0s 5;
         @keyframes gradient {
             100% {
-                background: linear-gradient(to left, #861657, #ffa69e);
+                background: linear-gradient(to bottom, #ff4500, #ffc6ac);
+                );
                 color: transparent;
                 -webkit-background-clip: text;
             }
