@@ -165,6 +165,7 @@ const MyPortfolio = () => {
                 <div className="divider"></div>
                 <Footer />
                 <div className="divider"></div>
+                <FooterContainer>Jin-Ah's portfolio</FooterContainer>
             </div>
         </>
     );
@@ -172,6 +173,18 @@ const MyPortfolio = () => {
 
 export default MyPortfolio;
 
-const Comment = styled.span`
-    font-size: 0.3em;
+const FooterContainer = styled.span`
+    height: 7vh;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffefba8a;
+    color: #998f70;
+    padding: 0 25px;
+    font-size: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: "East Sea Dokdo", sans-serif;
 `;
