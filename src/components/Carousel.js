@@ -9,13 +9,11 @@ const Carousel = ({ slideIndex, click, setClick }) => {
             {project.map((item, index) => (
                 <SliderWrapper
                     className={
-                        click
-                            ? slideIndex === index + 1
-                                ? "is_active_click"
-                                : "is_pass_click"
+                        slideIndex === index + 1 && click
+                            ? "is_active_click"
                             : slideIndex === index + 1
-                            ? "is_active_NoClick"
-                            : "is_pass_NoClick"
+                            ? "is_NoClick"
+                            : "is_pass"
                     }
                     onClick={() => setClick((cur) => !cur)}
                 >
@@ -46,46 +44,24 @@ const SliderWrapper = styled.div`
     position: absolute;
     width: inherit;
     height: inherit;
+    opacity: 1;
     &.is_active_click #card {
         transform-style: preserve-3d;
         transform: rotateY(180deg);
-        transition: 0.03s ease-in-out 0.03s;
-        opacity: 1;
-        transition: opacity ease-in-out 0.001s;
+        transition: opacity ease-in-out 0.001s, transform 0.4s ease-in-out 0.03s;
     }
-    &.is_active_NoClick #card {
-        transform-style: preserve-3d;
-        transform: rotateY(0);
-        transition: 0.03s ease-in-out 0.03s;
-        opacity: 1;
-        transition: opacity ease-in-out 0.001s;
-    }
-    &.is_pass_click #card {
-        transform-style: preserve-3d;
-        transform: rotateY(180deg);
-        transition: 0.03s ease-in-out 0.03s;
+    &.is_pass #card {
         opacity: 0;
-        transition: opacity ease-in-out 0.001s;
-        pointer-events: none;
-    }
-    &.is_pass_NoClick #card {
-        opacity: 0;
-        transition: opacity ease-in-out 0.001s;
         pointer-events: none;
         transform-style: preserve-3d;
         transform: rotateY(0);
-        transition: 0.03s ease-in-out 0.03s;
+        transition: opacity ease-in-out 0.001s, transform 0.4s ease-in-out 0.03s;
     }
-    // &.is_click #card {
-    //     transform-style: preserve-3d;
-    //     transform: rotateY(180deg);
-    //     transition: 0.4s ease-in-out 0.03s;
-    // }
-    // &.is_NoClick #card {
-    //     transform-style: preserve-3d;
-    //     transform: rotateY(0);
-    //     transition: 0.4s ease-in-out 0.03s;
-    // }
+    &.is_NoClick #card {
+        transform-style: preserve-3d;
+        transform: rotateY(0);
+        transition: opacity ease-in-out 0.001s, transform 0.4s ease-in-out 0.03s;
+    }
 `;
 
 const FrontSide = styled.div`
@@ -128,14 +104,4 @@ const Slider = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
-    &.is_pass {
-        opacity: 0;
-        transition: opacity ease-in-out 0.001s;
-        pointer-events: none;
-    }
-    &.is_active {
-        opacity: 1;
-        transition: opacity ease-in-out 0.001s;
-    }
 `;
