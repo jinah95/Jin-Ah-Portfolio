@@ -8,14 +8,12 @@ const Projects = () => {
     const isMobile = useMediaQuery({ query: "(max-width: 680px)" });
 
     const [slideIndex, setSlideIndex] = useState(1);
-    const [click, setClick] = useState(false);
 
     const nextSlide = (idx) => {
         if (slideIndex === project.length) {
             return;
         }
         setSlideIndex(slideIndex + 1);
-        setClick(false);
     };
 
     const prevSlide = () => {
@@ -23,7 +21,6 @@ const Projects = () => {
             return;
         }
         setSlideIndex(slideIndex - 1);
-        setClick(false);
     };
 
     return (
@@ -48,11 +45,7 @@ const Projects = () => {
                         <InfoWebComment>
                             ※ 클릭 시, 상세설명이 나타납니다.
                         </InfoWebComment>
-                        <Carousel
-                            slideIndex={slideIndex}
-                            click={click}
-                            setClick={setClick}
-                        />
+                        <Carousel slideIndex={slideIndex} />
                     </CarouselWrapper>
                     <ArrowRight onClick={nextSlide}>
                         <ArrowImg src="imgs/arrow-left.png" alt="arrow-left" />

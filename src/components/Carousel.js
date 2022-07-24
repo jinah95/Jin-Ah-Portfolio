@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Project from "./Project";
 import project from "../projects.json";
 import styled from "styled-components";
 
-const Carousel = ({ slideIndex, click, setClick }) => {
+const Carousel = ({ slideIndex }) => {
+    const [click, setClick] = useState(false);
+
+    useEffect(() => {
+        setClick(false);
+    }, [slideIndex]);
+
     return (
         <CarouselWrapper>
             {project.map((item, index) => (
@@ -56,9 +62,7 @@ const SliderWrapper = styled.div`
         transition: opacity ease-in-out 0.001s;
     }
     &.is_NoClick #card {
-        transform-style: preserve-3d;
-        transform: rotateY(0);
-        transition: opacity ease-in-out 0.001s, transform 0.4s ease-in-out 0.03s;
+        transition: opacity ease-in-out 0.001s;
     }
 `;
 
