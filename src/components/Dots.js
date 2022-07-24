@@ -39,7 +39,7 @@ const Dot = ({ num, scrollIndex, outerDivRef, setScrollIndex, setNoDots }) => {
 const Dots = ({ scrollIndex, outerDivRef, setScrollIndex, setNoDots }) => {
     const isMobile = useMediaQuery({ query: "(max-width: 680px)" });
     return (
-        isMobile && (
+        !isMobile && (
             <div style={{ position: "fixed", top: "47%", right: 15 }}>
                 <div
                     style={{
