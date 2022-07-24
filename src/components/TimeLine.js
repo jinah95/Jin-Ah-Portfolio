@@ -12,19 +12,15 @@ const TimeLine = () => {
                 <TimeLineWrapper>
                     <OuterDiv>
                         {TimeHistory.map((item, index) => (
-                            <>
+                            <div key={`Time-${index}`}>
                                 <Direction>
                                     <DirectionImg
                                         src="imgs/upDirection.png"
                                         alt="up"
                                     />
                                 </Direction>
-                                <Time
-                                    key={`Time-${index}`}
-                                    index={index}
-                                    item={item}
-                                />
-                            </>
+                                <Time index={index} item={item} />
+                            </div>
                         ))}
                     </OuterDiv>
                 </TimeLineWrapper>
