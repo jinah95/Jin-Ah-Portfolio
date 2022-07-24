@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import Dots from "./Dots";
 import styled from "styled-components";
 import { useRef, useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
 const DIVIDER_HEIGHT = 5;
 
@@ -14,9 +15,11 @@ const MyPortfolio = () => {
     const outerDivRef = useRef();
     const [scrollIndex, setScrollIndex] = useState(1);
     const [noDots, setNoDots] = useState(true);
+    const isMobile = useMediaQuery({ query: "(max-width: 680px)" });
 
     useEffect(() => {
         const wheelHandler = (e) => {
+            console.log("scroll이 반응하니?");
             e.preventDefault();
             const { deltaY } = e;
             const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
@@ -132,10 +135,17 @@ const MyPortfolio = () => {
             }
         };
         const outerDivRefCurrent = outerDivRef.current;
-        outerDivRefCurrent.addEventListener("wheel", wheelHandler);
-        return () => {
-            outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
-        };
+        if (!isMobile) {
+            outerDivRefCurrent.addEventListener("wheel", wheelHandler);
+            return () => {
+                outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
+            };
+        } else {
+            outerDivRefCurrent.addEventListener("scroll", wheelHandler);
+            return () => {
+                outerDivRefCurrent.removeEventListener("scroll", wheelHandler);
+            };
+        }
     }, []);
     return (
         <>
