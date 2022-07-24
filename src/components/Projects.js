@@ -62,12 +62,16 @@ const Projects = () => {
                     <Icon
                         src="imgs/github.png"
                         alt="github"
-                        onClick={() => window.open(project.github)}
+                        onClick={() =>
+                            window.open(project[slideIndex - 1].github)
+                        }
                     />
                     <Icon
                         src="imgs/demo.png"
                         alt="demo"
-                        onClick={() => window.open(project.demo)}
+                        onClick={() =>
+                            window.open(project[slideIndex - 1].demo)
+                        }
                     />
                 </Links>
                 <InfoMent>
