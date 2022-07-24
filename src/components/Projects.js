@@ -41,7 +41,7 @@ const Projects = () => {
                 {" "}
                 <div>{"<Projects>"}</div>
                 <ProjectCardWrapper>
-                    <ArrowLeft onTouchStart={prevSlide}>
+                    <ArrowLeft onClick={prevSlide}>
                         <ArrowImg src="imgs/arrow-left.png" alt="arrow-left" />
                     </ArrowLeft>
                     <CarouselWrapper>
@@ -54,7 +54,7 @@ const Projects = () => {
                             setClick={setClick}
                         />
                     </CarouselWrapper>
-                    <ArrowRight onTouchStart={nextSlide}>
+                    <ArrowRight onClick={nextSlide}>
                         <ArrowImg src="imgs/arrow-left.png" alt="arrow-left" />
                     </ArrowRight>
                 </ProjectCardWrapper>
@@ -62,12 +62,12 @@ const Projects = () => {
                     <Icon
                         src="imgs/github.png"
                         alt="github"
-                        onTouchStart={() => window.open(`${project.github}`)}
+                        onClick={() => window.open(project.github)}
                     />
                     <Icon
                         src="imgs/demo.png"
                         alt="demo"
-                        onTouchStart={() => window.open(`${project.demo}`)}
+                        onClick={() => window.open(project.demo)}
                     />
                 </Links>
                 <InfoMent>
