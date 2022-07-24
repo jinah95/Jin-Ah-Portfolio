@@ -7,7 +7,7 @@ const Carousel = ({ slideIndex, click, setClick }) => {
     return (
         <CarouselWrapper
             className={click ? "is_click" : "is_NoClick"}
-            onClick={() => setClick((cur) => !cur)}
+            onTouchStart={() => setClick((cur) => !cur)}
         >
             {project.map((item, index) => (
                 <Slider
