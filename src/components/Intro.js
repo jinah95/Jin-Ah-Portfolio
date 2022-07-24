@@ -120,34 +120,13 @@ const Intro = () => {
                                     borderRadius: "20px",
                                 }}
                             >
-                                <div
-                                    style={{
-                                        borderBottom: "2px dashed orangered",
-                                        height: "6vh",
-                                        width: "90%",
-                                        margin: "0 0.5vw",
-                                    }}
-                                ></div>
-                                <div
-                                    style={{
-                                        height: "6vh",
-                                        backgroundColor: "orangered",
-                                        display: "flex",
-                                        alignItems: "center",
-                                        padding: "0 1.5vw",
-                                        borderRadius: "20px",
-                                        fontSize: "1.2em",
-                                    }}
-                                >
-                                    <img
+                                <SearchLine></SearchLine>
+                                <SearchImgContainer>
+                                    <SearchImg
                                         src="imgs/search.png"
                                         alt="search"
-                                        style={{
-                                            height: "4vh",
-                                        }}
                                     />
-                                    {/* 🔍 */}
-                                </div>
+                                </SearchImgContainer>
                             </div>
                             {droppedArray !== 4 && (
                                 <InfoMent>
@@ -250,33 +229,13 @@ const Intro = () => {
                                     borderRadius: "20px",
                                 }}
                             >
-                                <div
-                                    style={{
-                                        borderBottom: "2px dashed orangered",
-                                        height: "6vh",
-                                        width: "90%",
-                                        margin: "0 1.2vw",
-                                    }}
-                                ></div>
-                                <div
-                                    style={{
-                                        height: "6vh",
-                                        backgroundColor: "orangered",
-                                        display: "flex",
-                                        alignItems: "center",
-                                        padding: "0 1.5vw",
-                                        borderRadius: "20px",
-                                        fontSize: "1.2em",
-                                    }}
-                                >
-                                    <img
+                                <SearchLine></SearchLine>
+                                <SearchImgContainer>
+                                    <SearchImg
                                         src="imgs/search.png"
                                         alt="search"
-                                        style={{
-                                            height: "2.8vh",
-                                        }}
                                     />
-                                </div>
+                                </SearchImgContainer>
                             </div>
                             <DropZone className="isMobile">
                                 <DraggableItem id="1" className="isMobile">
@@ -354,9 +313,6 @@ const AllContainers = styled.div`
     height: 85vh;
     padding-bottom: 7vh;
     font-family: "East Sea Dokdo", sans-serif;
-    @media screen and (max-width: 680px) {
-        padding-top: 5vh;
-    } ;
 `;
 
 const DropZone = styled.div`
@@ -382,6 +338,7 @@ const DropZone = styled.div`
         background-color: #ffefba8a;
         border: none;
         width: 85%;
+        height: 30vh;
     }
 `;
 const InfoMent = styled.span`
@@ -450,9 +407,9 @@ const DraggableItem = styled.div`
         font-size: 2em;
     }
     @media screen and (max-width: 680px) {
-        font-size: 1.5em;
-        height: 8vh;
-        line-height: 8vh;
+        font-size: 1.2em;
+        height: 7vh;
+        line-height: 7vh;
         position: relative;
         top: auto;
         left: auto;
@@ -480,6 +437,9 @@ const SearchContainer = styled.div`
     align-items: center;
     justify-content: space-evenly;
     border-radius: 20px;
+    @media screen and (max-width: 680px) {
+        height: 45vh;
+    }
 `;
 const DropedComment = styled.div`
     font-size: 0.8em;
@@ -539,5 +499,35 @@ const Name = styled.span`
                 -webkit-background-clip: text;
             }
         }
+    }
+`;
+
+const SearchLine = styled.div`
+    border-bottom: 2px dashed orangered;
+    height: 6vh;
+    width: 90%;
+    margin: 0 1.2vw;
+    @media screen and (max-width: 680px) {
+        height: 4.5vh;
+    }
+`;
+
+const SearchImgContainer = styled.div`
+    height: 6vh;
+    background-color: orangered;
+    display: flex;
+    align-items: center;
+    padding: 0 1.5vw;
+    border-radius: 20px;
+    font-size: 1.2em;
+    @media screen and (max-width: 680px) {
+        height: 4.5vh;
+    }
+`;
+
+const SearchImg = styled.img`
+    height: 4vh;
+    @media screen and (max-width: 680px) {
+        height: 2.5vh;
     }
 `;
