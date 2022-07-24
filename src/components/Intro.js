@@ -52,7 +52,7 @@ const Intro = () => {
     };
 
     return (
-        <div className="inner">
+        <div className="inner" style={{ fontSize: "1em" }}>
             {!isMobile && (
                 <AllContainers>
                     <BeforeZone
@@ -232,13 +232,13 @@ const Intro = () => {
                 </AllContainers>
             )}
             {isMobile && (
-                <AllContainers>
+                <AllContainers className="isMobile">
                     {" "}
                     <MainContainer>
                         <div style={{ height: "8vh", fontSize: "3.2em" }}>
                             " 저는{" "}
                         </div>
-                        <SearchContainer>
+                        <SearchContainer className="isMobile">
                             <div
                                 style={{
                                     width: "85%",
@@ -354,6 +354,9 @@ const AllContainers = styled.div`
     height: 85vh;
     padding-bottom: 7vh;
     font-family: "East Sea Dokdo", sans-serif;
+    @media screen and (max-width: 680px) {
+        padding-top: 5vh;
+    } ;
 `;
 
 const DropZone = styled.div`

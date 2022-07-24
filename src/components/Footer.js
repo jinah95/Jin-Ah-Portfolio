@@ -195,6 +195,9 @@ const Container = styled.div`
     height: 85vh;
     padding-bottom: 7vh;
     font-family: "East Sea Dokdo", sans-serif;
+    @media screen and (max-width: 680px) {
+        padding-top: 5vh;
+    } ;
 `;
 
 const ProfileImage = styled.img`
