@@ -70,7 +70,7 @@ const FrontSide = styled.div`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: #ffefba;
+    background-color: #ffefba8a;
     transform: rotateY(0deg);
     border-radius: 20px;
     position: absolute;
