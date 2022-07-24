@@ -37,11 +37,13 @@ const CarouselWrapper = styled.div`
     height: inherit;
     font-family: "East Sea Dokdo", sans-serif;
     &.is_click #card {
+        transform-style: preserve-3d;
         transform: rotateY(180deg);
         transition: 0.4s ease-in-out 0.03s;
     }
     &.is_NoClick #card {
-        transform: rotateY(0deg);
+        transform-style: preserve-3d;
+        transform: rotateY(0);
         transition: 0.4s ease-in-out 0.03s;
     }
 `;
@@ -92,8 +94,6 @@ const Slider = styled.div`
     }
     &.is_active {
         opacity: 1;
-        position: absolute;
-        transform-style: preserve-3d;
         transition: opacity ease-in-out 0.001s;
     }
 `;
