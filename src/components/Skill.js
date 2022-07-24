@@ -58,6 +58,7 @@ const FlipWrapper = styled.div`
     margin: 0.4vh 0;
     display: flex;
     justify-content: space-evenly;
+    font-family: "East Sea Dokdo", sans-serif;
     align-items: center;
     &:hover #card {
         transform: rotateY(180deg);

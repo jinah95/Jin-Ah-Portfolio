@@ -35,6 +35,7 @@ const CarouselWrapper = styled.div`
     position: relative;
     width: inherit;
     height: inherit;
+    font-family: "East Sea Dokdo", sans-serif;
     &.is_click #card {
         transform: rotateY(180deg);
         transition: 0.4s ease-in-out 0.03s;

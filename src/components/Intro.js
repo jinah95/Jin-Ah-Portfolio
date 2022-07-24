@@ -353,6 +353,7 @@ const AllContainers = styled.div`
     width: 100%;
     height: 85vh;
     padding-bottom: 7vh;
+    font-family: "East Sea Dokdo", sans-serif;
 `;
 
 const DropZone = styled.div`

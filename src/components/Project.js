@@ -60,6 +60,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
     margin: 2vh 0;
+    font-family: "East Sea Dokdo", sans-serif;
 `;
 const ProjectCard = styled.div`
     width: inherit;
@@ -69,6 +70,7 @@ const ProjectCard = styled.div`
     flex-direction: column;
     justify-content: space-around;
     text-align: center;
+    font-family: "East Sea Dokdo", sans-serif;
 `;
 const ProjectBackCard = styled.div`
     width: inherit;
@@ -78,6 +80,7 @@ const ProjectBackCard = styled.div`
     flex-direction: column;
     justify-content: space-around;
     text-align: left;
+    font-family: "East Sea Dokdo", sans-serif;
 `;
 const TextWrapper = styled.div`
     height: 26vh;
@@ -85,6 +88,7 @@ const TextWrapper = styled.div`
     flex-direction: column;
     justify-content: space-around;
     margin: 1vh 2vw;
+    font-family: "East Sea Dokdo", sans-serif;
 `;
 const ImgWrapper = styled.div`
     width: inherit;

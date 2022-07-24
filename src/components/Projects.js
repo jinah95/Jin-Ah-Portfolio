@@ -93,6 +93,7 @@ const ProjectCardWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: "East Sea Dokdo", sans-serif;
     @media screen and (max-width: 680px) {
         height: 50vh;
     } ;
@@ -149,6 +150,7 @@ const Links = styled.div`
     width: 80vmin;
     border-radius: 20px;
     background-color: #ffefba8a;
+    font-family: "East Sea Dokdo", sans-serif;
     @media screen and (max-width: 680px) {
         height: 3vh;
         margin-top: 4vh;

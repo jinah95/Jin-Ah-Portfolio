@@ -1,4 +1,4 @@
-import Intro from "./components/Intro";
+import "./App.css";
 import MyPortfolio from "./components/MyPortfolio";
 
 function App() {

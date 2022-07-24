@@ -142,7 +142,11 @@ const MyPortfolio = () => {
             {/* <Comment>
                 # UI상 해당 페이지에서 ScrollDots는 숨겨두었습니다.
             </Comment> */}
-            <div ref={outerDivRef} className="outer">
+            <div
+                ref={outerDivRef}
+                className="outer"
+                style={{ fontFamily: "East Sea Dokdo, sans-serif" }}
+            >
                 {noDots && (
                     <Dots
                         scrollIndex={scrollIndex}

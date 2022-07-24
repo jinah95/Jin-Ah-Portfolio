@@ -33,6 +33,7 @@ const Card = styled.div`
     word-break: keep-all;
     white-space: pre-line;
     word-wrap: break-word;
+    font-family: "East Sea Dokdo", sans-serif;
     height: calc(46vh / ${imgArray.length});
     @media screen and (max-width: 380px) {
         padding: 0 20px 0 20px;
