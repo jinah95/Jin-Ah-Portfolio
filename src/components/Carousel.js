@@ -53,9 +53,7 @@ const SliderWrapper = styled.div`
     &.is_pass #card {
         opacity: 0;
         pointer-events: none;
-        transform-style: preserve-3d;
-        transform: rotateY(0);
-        transition: opacity ease-in-out 0.001s, transform 0.4s ease-in-out 0.03s;
+        transition: opacity ease-in-out 0.001s;
     }
     &.is_NoClick #card {
         transform-style: preserve-3d;
