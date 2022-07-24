@@ -38,8 +38,8 @@ html {
 
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "East Sea Dokdo", "Segoe UI",
-        "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -70,7 +70,7 @@ body {
 
 #root {
     min-height: 93vh;
-    --toastify-font-family: "East Sea Dokdo";
+    --toastify-font-family: "East Sea Dokdo", sans-serif;
     --toastify-color-progress-success: linear-gradient(
         to right,
         #4cd964,
