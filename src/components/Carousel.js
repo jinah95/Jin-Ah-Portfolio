@@ -14,6 +14,7 @@ const Carousel = ({ slideIndex }) => {
         <CarouselWrapper>
             {project.map((item, index) => (
                 <SliderWrapper
+                    key={`project-${index}`}
                     className={
                         slideIndex === index + 1 && click
                             ? "is_active_click"
@@ -23,7 +24,7 @@ const Carousel = ({ slideIndex }) => {
                     }
                     onClick={() => setClick((cur) => !cur)}
                 >
-                    <Slider id="card" key={`project-${index}`}>
+                    <Slider id="card">
                         <FrontSide>
                             <Project project={item} front={true} />
                         </FrontSide>
