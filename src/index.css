@@ -46,14 +46,9 @@ body {
     -moz-osx-font-smoothing: grayscale;
     overflow-y: hidden;
 }
-.outer {
-    height: 95vh;
-    overflow-y: auto;
-}
 
-/* 화면에서 스크롤바 안보이게 */
-.outer::-webkit-scrollbar {
-    display: none;
+.yContainer {
+    scroll-snap-align: center;
 }
 
 .inner {
