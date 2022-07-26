@@ -341,7 +341,6 @@ const Child = styled.div`
     height: 100vh;
     @media screen and (max-width: 680px) {
         height: calc(var(--var, 1vh) * 100);
-        padding-bottom: 7vh;
     } ;
 `;
 

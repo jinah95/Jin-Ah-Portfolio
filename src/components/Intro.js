@@ -311,6 +311,7 @@ const AllContainers = styled.div`
     align-items: center;
     width: 100%;
     height: 85vh;
+    padding-bottom: 7vh;
     font-family: "East Sea Dokdo", sans-serif;
     @media screen and (max-width: 680px) {
         height: 100vh;

@@ -80,6 +80,7 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     height: 85vh;
+    padding-bottom: 7vh;
     @media screen and (max-width: 680px) {
         height: 100vh;
         justify-content: center;
