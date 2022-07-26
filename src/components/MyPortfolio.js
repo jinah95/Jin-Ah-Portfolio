@@ -154,7 +154,7 @@ const MyPortfolio = () => {
 
                 let diffY = initialY - currentY;
 
-                if (diffY !== 0) {
+                if (diffY !== 0 && Math.abs(diffY) === 5) {
                     0 < diffY ? upper() : down();
                 }
 
@@ -201,7 +201,6 @@ const MyPortfolio = () => {
                     left: 0,
                     behavior: "smooth",
                 });
-                document.documentElement.style.overflow = "hidden";
                 setNoDots(true);
                 setScrollIndex(5);
             } else {
@@ -210,7 +209,6 @@ const MyPortfolio = () => {
                     left: 0,
                     behavior: "smooth",
                 });
-                document.documentElement.style.overflow = "hidden";
                 setNoDots(true);
                 setScrollIndex(5);
             }
