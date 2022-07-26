@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
 
@@ -50,6 +50,11 @@ const Intro = () => {
             setDroppedArray((cur) => cur - 1);
         }
     };
+    let vh = 0;
+    useEffect(() => {
+        vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty("--vh", `${vh}px`);
+    }, []);
 
     return (
         <div className="inner" style={{ fontSize: "1em" }} id="intro">

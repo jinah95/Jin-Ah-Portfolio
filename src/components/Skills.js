@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Skill from "./Skill";
 import mySkills from "../mySkills.json";
 
 const Skills = () => {
+    let vh = 0;
+    useEffect(() => {
+        vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty("--vh", `${vh}px`);
+    }, []);
+
     return (
         <div className="inner" style={{ fontSize: "3.5em" }}>
             <Container>

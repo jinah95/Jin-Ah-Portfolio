@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
 import { ToastContainer, toast } from "react-toastify";
@@ -26,6 +26,11 @@ const Footer = () => {
             toast.error("실패했습니다. 다시 시도해주세요!");
         }
     };
+    let vh = 0;
+    useEffect(() => {
+        vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty("--vh", `${vh}px`);
+    }, []);
 
     return (
         <div className="inner" style={{ fontSize: "3.5em" }}>
