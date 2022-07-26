@@ -8,6 +8,7 @@ import Dots from "./Dots";
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
 import { useRef, useEffect, useState } from "react";
+import throttle from "lodash.throttle";
 
 const DIVIDER_HEIGHT = 5;
 
@@ -20,6 +21,7 @@ const MyPortfolio = () => {
 
     useEffect(() => {
         let initialY = null;
+
         const wheelHandler = (e) => {
             e.preventDefault();
             const { deltaY } = e;
@@ -140,6 +142,7 @@ const MyPortfolio = () => {
             }
         };
         const initTouch = (e) => {
+            console.log("스크롤");
             initialY = `${e.touches ? e.touches[0].clientY : e.clientY}`;
         };
 
@@ -272,8 +275,21 @@ const MyPortfolio = () => {
         const outerDivRefCurrent = outerDivRef.current;
 
         outerDivRefCurrent.addEventListener("wheel", wheelHandler);
-        outerDivRefCurrent.addEventListener("touchstart", initTouch);
-        outerDivRefCurrent.addEventListener("touchend", swipeDirection);
+        outerDivRefCurrent.addEventListener(
+            "touchstart",
+
+            throttle(initTouch, 2000),
+            {
+                passive: true,
+            }
+        );
+        outerDivRefCurrent.addEventListener(
+            "touchend",
+            throttle(swipeDirection, 2000),
+            {
+                passive: true,
+            }
+        );
 
         return () => {
             outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
