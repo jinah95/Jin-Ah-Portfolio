@@ -291,21 +291,21 @@ const MyPortfolio = () => {
                         setNoDots={setNoDots}
                     />
                 )}
-                <div id="intro">
+                <Child id="intro">
                     <Intro className="yContainer" id="Intro" />
-                </div>
-                <div id="skill">
+                </Child>
+                <Child id="skill">
                     <Skills id="2" className="yContainer" />
-                </div>
-                <div id="project">
+                </Child>
+                <Child id="project">
                     <Projects id="3" className="yContainer" />
-                </div>
-                <div id="timeline">
+                </Child>
+                <Child id="timeline">
                     <TimeLine id="4" className="yContainer" />
-                </div>
-                <div id="footer">
+                </Child>
+                <Child id="footer">
                     <Footer id="5" className="yContainer" />
-                </div>
+                </Child>
                 <FooterContainer>Jin-Ah's portfolio</FooterContainer>
             </FullPageWrapper>
         </>
@@ -324,6 +324,13 @@ const FullPageWrapper = styled.div`
         width: 0;
         background: transparent;
     }
+    @media screen and (max-width: 680px) {
+        height: calc(var(--var, 1vh) * 100);
+    } ;
+`;
+
+const Child = styled.div`
+    height: 100vh;
     @media screen and (max-width: 680px) {
         height: calc(var(--var, 1vh) * 100);
     } ;
