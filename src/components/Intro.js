@@ -310,8 +310,7 @@ const AllContainers = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 85vh;
-    padding-bottom: 7vh;
+    height: 100vh;
     font-family: "East Sea Dokdo", sans-serif;
 `;
 

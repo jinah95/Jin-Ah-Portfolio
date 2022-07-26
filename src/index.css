@@ -59,10 +59,10 @@ body {
     align-items: center;
 }
 
-.divider {
+/* .divider {
     width: 100%;
     height: 5px;
-}
+} */
 
 #root {
     min-height: 93vh;

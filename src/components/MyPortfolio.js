@@ -284,15 +284,10 @@ const MyPortfolio = () => {
                     />
                 )}
                 <Intro className="yContainer" />
-                <div className="divider"></div>
                 <Skills id="2" className="yContainer" />
-                <div className="divider"></div>
                 <Projects id="3" className="yContainer" />
-                <div className="divider"></div>
                 <TimeLine id="4" className="yContainer" />
-                <div className="divider"></div>
                 <Footer id="5" className="yContainer" />
-                <div className="divider"></div>
                 <FooterContainer>Jin-Ah's portfolio</FooterContainer>
             </FullPageWrapper>
         </>
