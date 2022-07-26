@@ -82,6 +82,8 @@ const Container = styled.div`
     height: 85vh;
     @media screen and (max-width: 680px) {
         height: 100vh;
+        height: -webkit-fill-available;
+        height: fill-available;
         justify-content: center;
     } ;
 `;

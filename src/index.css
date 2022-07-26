@@ -33,7 +33,7 @@
 @import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css); */
 
 html {
-    height: 100vh;
+    height: 100%;
     background: no-repeat linear-gradient(#ffefba, #fff);
 }
 
@@ -45,7 +45,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-y: hidden;
-    height: 100vh;
+    height: 100%;
 }
 
 .yContainer {
@@ -66,9 +66,7 @@ body {
 } */
 
 #root {
-    height: 100vh;
-    position: fixed;
-    overflow: hidden;
+    min-height: 100vh;
     --toastify-font-family: "East Sea Dokdo", sans-serif;
     --toastify-color-progress-success: linear-gradient(
         to right,

@@ -269,6 +269,7 @@ const MyPortfolio = () => {
             outerDivRefCurrent.removeEventListener("touchend", swipeDirection);
         };
     }, []);
+
     return (
         <>
             {/* <Comment>
