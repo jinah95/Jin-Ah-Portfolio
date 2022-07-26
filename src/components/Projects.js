@@ -25,16 +25,7 @@ const Projects = () => {
 
     return (
         <div className="inner" style={{ fontSize: "3.5em" }}>
-            <div
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    height: "85vh",
-                    paddingBottom: "7vh",
-                }}
-            >
+            <Container>
                 {" "}
                 <div>{"<Projects>"}</div>
                 <ProjectCardWrapper>
@@ -76,12 +67,24 @@ const Projects = () => {
                         ↓ 아래로 내리시면 다음페이지로 이동합니다. ↓
                     </InfoWebComment>
                 )}
-            </div>
+            </Container>
         </div>
     );
 };
 
 export default Projects;
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 85vh;
+    @media screen and (max-width: 680px) {
+        height: 100vh;
+        justify-content: center;
+    } ;
+`;
 
 const ProjectCardWrapper = styled.div`
     width: 80vmin;

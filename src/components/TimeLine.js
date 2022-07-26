@@ -40,6 +40,9 @@ const Container = styled.div`
     width: 100%;
     height: 85vh;
     font-family: "East Sea Dokdo", sans-serif;
+    @media screen and (max-width: 680px) {
+        height: 100vh;
+    } ;
 `;
 
 const TimeLineWrapper = styled.div`

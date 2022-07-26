@@ -310,8 +310,11 @@ const AllContainers = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    height: 85vh;
     font-family: "East Sea Dokdo", sans-serif;
+    @media screen and (max-width: 680px) {
+        height: 100vh;
+    } ;
 `;
 
 const DropZone = styled.div`

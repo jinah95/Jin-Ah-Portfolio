@@ -194,6 +194,10 @@ const Container = styled.div`
     align-items: center;
     height: 85vh;
     font-family: "East Sea Dokdo", sans-serif;
+    @media screen and (max-width: 680px) {
+        height: 100vh;
+        justify-content: center;
+    } ;
 `;
 
 const ProfileImage = styled.img`
