@@ -142,7 +142,6 @@ const MyPortfolio = () => {
             }
         };
         const initTouch = (e) => {
-            console.log("스크롤");
             initialY = `${e.touches ? e.touches[0].clientY : e.clientY}`;
         };
 
