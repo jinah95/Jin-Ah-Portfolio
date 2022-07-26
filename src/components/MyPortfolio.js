@@ -155,7 +155,7 @@ const MyPortfolio = () => {
             const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
             if (scrollTop >= 0 && scrollTop < pageHeight) {
                 outerDivRef.current.scrollTo({
-                    top: pageHeight + DIVIDER_HEIGHT,
+                    top: pageHeight,
                     left: 0,
                     behavior: "smooth",
                 });
