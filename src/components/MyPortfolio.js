@@ -18,14 +18,11 @@ const MyPortfolio = () => {
     const outerDivRef = useRef();
     const [scrollIndex, setScrollIndex] = useState(1);
     const [noDots, setNoDots] = useState(true);
-    console.log(scrollIndex);
 
     useEffect(() => {
         let initialY = null;
         let timer;
         const wheelHandler = (e, deltaY, scrollTop, pageHeight) => {
-            // e.preventDefault();
-            console.log(scrollTop, pageHeight);
             if (deltaY > 0) {
                 // 스크롤 내릴 때
                 if (scrollTop >= 0 && scrollTop < pageHeight - DIVIDER_HEIGHT) {
@@ -71,14 +68,12 @@ const MyPortfolio = () => {
                     setScrollIndex(5);
                 } else {
                     outerDivRef.current.scrollTo({
-                        top:
-                            pageHeight * scrollIndex +
-                            DIVIDER_HEIGHT * scrollIndex,
+                        top: document.querySelector("#footer").offsetTop,
                         left: 0,
                         behavior: "smooth",
                     });
                     setNoDots(true);
-                    setScrollIndex(scrollIndex + 1);
+                    setScrollIndex(5);
                 }
             } else {
                 // 스크롤 올릴 때
@@ -134,16 +129,6 @@ const MyPortfolio = () => {
                     });
                     setNoDots(true);
                     setScrollIndex(4);
-                } else {
-                    outerDivRef.current.scrollTo({
-                        top:
-                            pageHeight * (scrollIndex - 1) +
-                            DIVIDER_HEIGHT * (scrollIndex - 1),
-                        left: 0,
-                        behavior: "smooth",
-                    });
-                    setNoDots(true);
-                    setScrollIndex(scrollIndex - 1);
                 }
             }
         };
@@ -319,7 +304,7 @@ const MyPortfolio = () => {
             outerDivRefCurrent.removeEventListener("touchstart", initTouch);
             outerDivRefCurrent.removeEventListener("touchend", swipeDirection);
         };
-    }, []);
+    }, [scrollIndex]);
 
     useEffect(() => {
         vh = window.innerHeight * 0.01;
