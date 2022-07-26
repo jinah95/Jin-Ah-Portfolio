@@ -154,7 +154,7 @@ const MyPortfolio = () => {
 
                 let diffY = initialY - currentY;
 
-                if (diffY !== 0 && Math.abs(diffY) === 5) {
+                if (diffY !== 0 && 2 < Math.abs(diffY)) {
                     0 < diffY ? upper() : down();
                 }
 
