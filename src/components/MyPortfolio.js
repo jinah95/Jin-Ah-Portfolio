@@ -32,6 +32,7 @@ const MyPortfolio = () => {
                         left: 0,
                         behavior: "smooth",
                     });
+
                     setNoDots(true);
                     setScrollIndex(2);
                 } else if (
@@ -43,6 +44,7 @@ const MyPortfolio = () => {
                         left: 0,
                         behavior: "smooth",
                     });
+
                     setNoDots(false);
                     setScrollIndex(3);
                 } else if (
@@ -65,6 +67,7 @@ const MyPortfolio = () => {
                         left: 0,
                         behavior: "smooth",
                     });
+                    document.documentElement.style.overflow = "hidden";
                     setNoDots(true);
                     setScrollIndex(5);
                 } else {
@@ -73,6 +76,7 @@ const MyPortfolio = () => {
                         left: 0,
                         behavior: "smooth",
                     });
+                    document.documentElement.style.overflow = "hidden";
                     setNoDots(true);
                     setScrollIndex(5);
                 }
@@ -145,7 +149,9 @@ const MyPortfolio = () => {
 
                 let diffY = initialY - currentY;
 
-                0 < diffY ? upper() : down();
+                if (diffY !== 0) {
+                    0 < diffY ? upper() : down();
+                }
 
                 initialY = null;
             }
@@ -190,6 +196,7 @@ const MyPortfolio = () => {
                     left: 0,
                     behavior: "smooth",
                 });
+                document.documentElement.style.overflow = "hidden";
                 setNoDots(true);
                 setScrollIndex(5);
             } else {
@@ -198,6 +205,7 @@ const MyPortfolio = () => {
                     left: 0,
                     behavior: "smooth",
                 });
+                document.documentElement.style.overflow = "hidden";
                 setNoDots(true);
                 setScrollIndex(5);
             }
@@ -295,16 +303,16 @@ const MyPortfolio = () => {
                     <Intro className="yContainer" id="Intro" />
                 </Child>
                 <Child id="skill">
-                    <Skills id="2" className="yContainer" />
+                    <Skills className="yContainer" />
                 </Child>
                 <Child id="project">
-                    <Projects id="3" className="yContainer" />
+                    <Projects className="yContainer" />
                 </Child>
                 <Child id="timeline">
-                    <TimeLine id="4" className="yContainer" />
+                    <TimeLine className="yContainer" />
                 </Child>
                 <Child id="footer">
-                    <Footer id="5" className="yContainer" />
+                    <Footer className="yContainer" />
                 </Child>
                 <FooterContainer>Jin-Ah's portfolio</FooterContainer>
             </FullPageWrapper>
