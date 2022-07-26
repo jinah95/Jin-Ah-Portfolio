@@ -163,7 +163,7 @@ const MyPortfolio = () => {
                 setScrollIndex(2);
             } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
                 outerDivRef.current.scrollTo({
-                    top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
+                    top: pageHeight * 2,
                     left: 0,
                     behavior: "smooth",
                 });
@@ -174,7 +174,7 @@ const MyPortfolio = () => {
                 scrollTop < pageHeight * 3
             ) {
                 outerDivRef.current.scrollTo({
-                    top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
+                    top: pageHeight * 3,
                     left: 0,
                     behavior: "smooth",
                 });
@@ -185,7 +185,7 @@ const MyPortfolio = () => {
                 scrollTop < pageHeight * 4
             ) {
                 outerDivRef.current.scrollTo({
-                    top: pageHeight * 4 + DIVIDER_HEIGHT * 4,
+                    top: pageHeight * 4,
                     left: 0,
                     behavior: "smooth",
                 });
@@ -193,7 +193,7 @@ const MyPortfolio = () => {
                 setScrollIndex(5);
             } else {
                 outerDivRef.current.scrollTo({
-                    top: pageHeight * 4 + DIVIDER_HEIGHT * 4,
+                    top: pageHeight * 4,
                     left: 0,
                     behavior: "smooth",
                 });
@@ -227,7 +227,7 @@ const MyPortfolio = () => {
                 scrollTop < pageHeight * 3
             ) {
                 outerDivRef.current.scrollTo({
-                    top: pageHeight + DIVIDER_HEIGHT,
+                    top: pageHeight,
                     left: 0,
                     behavior: "smooth",
                 });
@@ -238,7 +238,7 @@ const MyPortfolio = () => {
                 scrollTop < pageHeight * 4
             ) {
                 outerDivRef.current.scrollTo({
-                    top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
+                    top: pageHeight * 2,
                     left: 0,
                     behavior: "smooth",
                 });
@@ -249,7 +249,7 @@ const MyPortfolio = () => {
                 scrollTop < pageHeight * 5
             ) {
                 outerDivRef.current.scrollTo({
-                    top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
+                    top: pageHeight * 3,
                     left: 0,
                     behavior: "smooth",
                 });
