@@ -10,6 +10,7 @@ import { useRef, useEffect, useState } from "react";
 
 const DIVIDER_HEIGHT = 5;
 
+let vh = 0;
 const MyPortfolio = () => {
     const outerDivRef = useRef();
     const [scrollIndex, setScrollIndex] = useState(1);
@@ -270,6 +271,11 @@ const MyPortfolio = () => {
         };
     }, []);
 
+    useEffect(() => {
+        vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty("--vh", `${vh}px`);
+    }, []);
+
     return (
         <>
             {/* <Comment>
@@ -307,6 +313,9 @@ const FullPageWrapper = styled.div`
         width: 0;
         background: transparent;
     }
+    @media screen and (max-width: 680px) {
+        height: calc(var(--var, 1vh) * 100);
+    } ;
 `;
 
 const FooterContainer = styled.span`

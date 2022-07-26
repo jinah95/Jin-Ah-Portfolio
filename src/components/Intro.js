@@ -313,9 +313,7 @@ const AllContainers = styled.div`
     height: 85vh;
     font-family: "East Sea Dokdo", sans-serif;
     @media screen and (max-width: 680px) {
-        height: 100vh;
-        height: -webkit-fill-available;
-        height: fill-available;
+        height: calc(var(--var, 1vh) * 100);
     } ;
 `;
 

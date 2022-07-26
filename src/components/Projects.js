@@ -81,9 +81,7 @@ const Container = styled.div`
     align-items: center;
     height: 85vh;
     @media screen and (max-width: 680px) {
-        height: 100vh;
-        height: -webkit-fill-available;
-        height: fill-available;
+        height: calc(var(--var, 1vh) * 100);
         justify-content: center;
     } ;
 `;
