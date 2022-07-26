@@ -17,121 +17,121 @@ const MyPortfolio = () => {
 
     useEffect(() => {
         let initialY = null;
-        // const wheelHandler = (e) => {
-        //     e.preventDefault();
-        //     const { deltaY } = e;
-        //     const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
-        //     const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
+        const wheelHandler = (e) => {
+            e.preventDefault();
+            const { deltaY } = e;
+            const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
+            const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
 
-        //     if (deltaY > 0) {
-        //         // 스크롤 내릴 때
-        //         if (scrollTop >= 0 && scrollTop < pageHeight) {
-        //             outerDivRef.current.scrollTo({
-        //                 top: pageHeight + DIVIDER_HEIGHT,
-        //                 left: 0,
-        //                 behavior: "smooth",
-        //             });
-        //             setNoDots(true);
-        //             setScrollIndex(2);
-        //         } else if (
-        //             scrollTop >= pageHeight &&
-        //             scrollTop < pageHeight * 2
-        //         ) {
-        //             outerDivRef.current.scrollTo({
-        //                 top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
-        //                 left: 0,
-        //                 behavior: "smooth",
-        //             });
-        //             setNoDots(false);
-        //             setScrollIndex(3);
-        //         } else if (
-        //             scrollTop >= pageHeight * 2 &&
-        //             scrollTop < pageHeight * 3
-        //         ) {
-        //             outerDivRef.current.scrollTo({
-        //                 top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
-        //                 left: 0,
-        //                 behavior: "smooth",
-        //             });
-        //             setNoDots(true);
-        //             setScrollIndex(4);
-        //         } else if (
-        //             scrollTop >= pageHeight * 3 &&
-        //             scrollTop < pageHeight * 4
-        //         ) {
-        //             outerDivRef.current.scrollTo({
-        //                 top: pageHeight * 4 + DIVIDER_HEIGHT * 4,
-        //                 left: 0,
-        //                 behavior: "smooth",
-        //             });
-        //             setNoDots(true);
-        //             setScrollIndex(5);
-        //         } else {
-        //             outerDivRef.current.scrollTo({
-        //                 top: pageHeight * 4 + DIVIDER_HEIGHT * 4,
-        //                 left: 0,
-        //                 behavior: "smooth",
-        //             });
-        //             setNoDots(true);
-        //             setScrollIndex(5);
-        //         }
-        //     } else {
-        //         // 스크롤 올릴 때
-        //         if (scrollTop >= 0 && scrollTop < pageHeight) {
-        //             outerDivRef.current.scrollTo({
-        //                 top: 0,
-        //                 left: 0,
-        //                 behavior: "smooth",
-        //             });
-        //             setNoDots(true);
-        //             setScrollIndex(1);
-        //         } else if (
-        //             scrollTop >= pageHeight &&
-        //             scrollTop < pageHeight * 2
-        //         ) {
-        //             outerDivRef.current.scrollTo({
-        //                 top: 0,
-        //                 left: 0,
-        //                 behavior: "smooth",
-        //             });
-        //             setNoDots(true);
-        //             setScrollIndex(1);
-        //         } else if (
-        //             scrollTop >= pageHeight * 2 &&
-        //             scrollTop < pageHeight * 3
-        //         ) {
-        //             outerDivRef.current.scrollTo({
-        //                 top: pageHeight + DIVIDER_HEIGHT,
-        //                 left: 0,
-        //                 behavior: "smooth",
-        //             });
-        //             setNoDots(true);
-        //             setScrollIndex(2);
-        //         } else if (
-        //             scrollTop >= pageHeight * 3 &&
-        //             scrollTop < pageHeight * 4
-        //         ) {
-        //             outerDivRef.current.scrollTo({
-        //                 top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
-        //                 left: 0,
-        //                 behavior: "smooth",
-        //             });
-        //             setNoDots(false);
-        //             setScrollIndex(3);
-        //         } else if (
-        //             scrollTop >= pageHeight * 4 &&
-        //             scrollTop < pageHeight * 5
-        //         ) {
-        //             outerDivRef.current.scrollTo({
-        //                 top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
-        //                 left: 0,
-        //                 behavior: "smooth",
-        //             });
-        //             setNoDots(true);
-        //             setScrollIndex(4);
-        //         }
-        //     }
-        // };
+            if (deltaY > 0) {
+                // 스크롤 내릴 때
+                if (scrollTop >= 0 && scrollTop < pageHeight) {
+                    outerDivRef.current.scrollTo({
+                        top: pageHeight + DIVIDER_HEIGHT,
+                        left: 0,
+                        behavior: "smooth",
+                    });
+                    setNoDots(true);
+                    setScrollIndex(2);
+                } else if (
+                    scrollTop >= pageHeight &&
+                    scrollTop < pageHeight * 2
+                ) {
+                    outerDivRef.current.scrollTo({
+                        top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
+                        left: 0,
+                        behavior: "smooth",
+                    });
+                    setNoDots(false);
+                    setScrollIndex(3);
+                } else if (
+                    scrollTop >= pageHeight * 2 &&
+                    scrollTop < pageHeight * 3
+                ) {
+                    outerDivRef.current.scrollTo({
+                        top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
+                        left: 0,
+                        behavior: "smooth",
+                    });
+                    setNoDots(true);
+                    setScrollIndex(4);
+                } else if (
+                    scrollTop >= pageHeight * 3 &&
+                    scrollTop < pageHeight * 4
+                ) {
+                    outerDivRef.current.scrollTo({
+                        top: pageHeight * 4 + DIVIDER_HEIGHT * 4,
+                        left: 0,
+                        behavior: "smooth",
+                    });
+                    setNoDots(true);
+                    setScrollIndex(5);
+                } else {
+                    outerDivRef.current.scrollTo({
+                        top: pageHeight * 4 + DIVIDER_HEIGHT * 4,
+                        left: 0,
+                        behavior: "smooth",
+                    });
+                    setNoDots(true);
+                    setScrollIndex(5);
+                }
+            } else {
+                // 스크롤 올릴 때
+                if (scrollTop >= 0 && scrollTop < pageHeight) {
+                    outerDivRef.current.scrollTo({
+                        top: 0,
+                        left: 0,
+                        behavior: "smooth",
+                    });
+                    setNoDots(true);
+                    setScrollIndex(1);
+                } else if (
+                    scrollTop >= pageHeight &&
+                    scrollTop < pageHeight * 2
+                ) {
+                    outerDivRef.current.scrollTo({
+                        top: 0,
+                        left: 0,
+                        behavior: "smooth",
+                    });
+                    setNoDots(true);
+                    setScrollIndex(1);
+                } else if (
+                    scrollTop >= pageHeight * 2 &&
+                    scrollTop < pageHeight * 3
+                ) {
+                    outerDivRef.current.scrollTo({
+                        top: pageHeight + DIVIDER_HEIGHT,
+                        left: 0,
+                        behavior: "smooth",
+                    });
+                    setNoDots(true);
+                    setScrollIndex(2);
+                } else if (
+                    scrollTop >= pageHeight * 3 &&
+                    scrollTop < pageHeight * 4
+                ) {
+                    outerDivRef.current.scrollTo({
+                        top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
+                        left: 0,
+                        behavior: "smooth",
+                    });
+                    setNoDots(false);
+                    setScrollIndex(3);
+                } else if (
+                    scrollTop >= pageHeight * 4 &&
+                    scrollTop < pageHeight * 5
+                ) {
+                    outerDivRef.current.scrollTo({
+                        top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
+                        left: 0,
+                        behavior: "smooth",
+                    });
+                    setNoDots(true);
+                    setScrollIndex(4);
+                }
+            }
+        };
         const initTouch = (e) => {
             initialY = `${e.touches ? e.touches[0].clientY : e.clientY}`;
         };
@@ -139,11 +139,10 @@ const MyPortfolio = () => {
         const swipeDirection = (e) => {
             if (initialY !== null) {
                 const currentY = `${
-                    e.touches ? e.touches[0].clientY : e.clientY
+                    e.changedTouches ? e.changedTouches[0].clientY : e.clientY
                 }`;
 
                 let diffY = initialY - currentY;
-                console.log("=", initialY, currentY, diffY);
 
                 0 < diffY ? upper() : down();
 
@@ -151,10 +150,9 @@ const MyPortfolio = () => {
             }
         };
 
-        const upper = () => {
+        const upper = (e) => {
             const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
             const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
-
             if (scrollTop >= 0 && scrollTop < pageHeight) {
                 outerDivRef.current.scrollTo({
                     top: pageHeight + DIVIDER_HEIGHT,
@@ -203,9 +201,11 @@ const MyPortfolio = () => {
                 setScrollIndex(5);
             }
         };
+
         const down = () => {
             const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
             const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
+
             if (scrollTop >= 0 && scrollTop < pageHeight) {
                 outerDivRef.current.scrollTo({
                     top: 0,
@@ -260,12 +260,14 @@ const MyPortfolio = () => {
 
         const outerDivRefCurrent = outerDivRef.current;
 
-        // outerDivRefCurrent.addEventListener("wheel", wheelHandler);
-        // return () => {
-        //     outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
-        // };
+        outerDivRefCurrent.addEventListener("wheel", wheelHandler);
         outerDivRefCurrent.addEventListener("touchstart", initTouch);
-        outerDivRefCurrent.addEventListener("touchmove", swipeDirection);
+        outerDivRefCurrent.addEventListener("touchend", swipeDirection);
+        return () => {
+            outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
+            outerDivRefCurrent.removeEventListener("touchstart", initTouch);
+            outerDivRefCurrent.removeEventListener("touchend", swipeDirection);
+        };
     }, []);
     return (
         <>
@@ -283,13 +285,13 @@ const MyPortfolio = () => {
                 )}
                 <Intro className="yContainer" />
                 <div className="divider"></div>
-                <Skills className="yContainer" />
+                <Skills id="2" className="yContainer" />
                 <div className="divider"></div>
-                <Projects className="yContainer" />
+                <Projects id="3" className="yContainer" />
                 <div className="divider"></div>
-                <TimeLine className="yContainer" />
+                <TimeLine id="4" className="yContainer" />
                 <div className="divider"></div>
-                <Footer className="yContainer" />
+                <Footer id="5" className="yContainer" />
                 <div className="divider"></div>
                 <FooterContainer>Jin-Ah's portfolio</FooterContainer>
             </FullPageWrapper>
@@ -300,7 +302,7 @@ const MyPortfolio = () => {
 export default MyPortfolio;
 
 const FullPageWrapper = styled.div`
-    height: 95vh;
+    height: 100vh;
     overflow-y: auto;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;

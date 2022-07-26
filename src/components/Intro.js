@@ -52,7 +52,7 @@ const Intro = () => {
     };
 
     return (
-        <div className="inner" style={{ fontSize: "1em" }}>
+        <div className="inner" style={{ fontSize: "1em" }} id="intro">
             {!isMobile && (
                 <AllContainers>
                     <BeforeZone
@@ -211,7 +211,7 @@ const Intro = () => {
                 </AllContainers>
             )}
             {isMobile && (
-                <AllContainers className="isMobile">
+                <AllContainers className="isMobile" id="1">
                     {" "}
                     <MainContainer>
                         <div style={{ height: "8vh", fontSize: "3.2em" }}>
