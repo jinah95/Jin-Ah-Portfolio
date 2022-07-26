@@ -156,7 +156,7 @@ const MyPortfolio = () => {
             const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
             if (scrollTop >= 0 && scrollTop < pageHeight) {
                 outerDivRef.current.scrollTo({
-                    top: pageHeight + 10 * vh,
+                    top: document.querySelector("#skill").offsetTop,
                     left: 0,
                     behavior: "smooth",
                 });
@@ -164,7 +164,7 @@ const MyPortfolio = () => {
                 setScrollIndex(2);
             } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
                 outerDivRef.current.scrollTo({
-                    top: pageHeight * 2 + 10 * vh * 2,
+                    top: document.querySelector("#project").offsetTop,
                     left: 0,
                     behavior: "smooth",
                 });
@@ -175,7 +175,7 @@ const MyPortfolio = () => {
                 scrollTop < pageHeight * 3
             ) {
                 outerDivRef.current.scrollTo({
-                    top: pageHeight * 3 + 10 * vh * 3,
+                    top: document.querySelector("#timeline").offsetTop,
                     left: 0,
                     behavior: "smooth",
                 });
@@ -186,7 +186,7 @@ const MyPortfolio = () => {
                 scrollTop < pageHeight * 4
             ) {
                 outerDivRef.current.scrollTo({
-                    top: pageHeight * 4 + 10 * vh * 4,
+                    top: document.querySelector("#footer").offsetTop,
                     left: 0,
                     behavior: "smooth",
                 });
@@ -194,7 +194,7 @@ const MyPortfolio = () => {
                 setScrollIndex(5);
             } else {
                 outerDivRef.current.scrollTo({
-                    top: pageHeight * 4 + 10 * vh * 4,
+                    top: document.querySelector("#footer").offsetTop,
                     left: 0,
                     behavior: "smooth",
                 });
@@ -264,6 +264,7 @@ const MyPortfolio = () => {
         outerDivRefCurrent.addEventListener("wheel", wheelHandler);
         outerDivRefCurrent.addEventListener("touchstart", initTouch);
         outerDivRefCurrent.addEventListener("touchend", swipeDirection);
+
         return () => {
             outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
             outerDivRefCurrent.removeEventListener("touchstart", initTouch);
@@ -290,11 +291,19 @@ const MyPortfolio = () => {
                         setNoDots={setNoDots}
                     />
                 )}
-                <Intro className="yContainer" />
-                <Skills id="2" className="yContainer" />
-                <Projects id="3" className="yContainer" />
-                <TimeLine id="4" className="yContainer" />
-                <Footer id="5" className="yContainer" />
+                <Intro className="yContainer" id="Intro" />
+                <div id="skill">
+                    <Skills id="2" className="yContainer" />
+                </div>
+                <div id="project">
+                    <Projects id="3" className="yContainer" />
+                </div>
+                <div id="timeline">
+                    <TimeLine id="4" className="yContainer" />
+                </div>
+                <div id="footer">
+                    <Footer id="5" className="yContainer" />
+                </div>
                 <FooterContainer>Jin-Ah's portfolio</FooterContainer>
             </FullPageWrapper>
         </>
