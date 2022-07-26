@@ -209,7 +209,7 @@ const MyPortfolio = () => {
 
             if (scrollTop >= 0 && scrollTop < pageHeight) {
                 outerDivRef.current.scrollTo({
-                    top: 0,
+                    top: document.querySelector("#intro").offsetTop,
                     left: 0,
                     behavior: "smooth",
                 });
@@ -217,7 +217,7 @@ const MyPortfolio = () => {
                 setScrollIndex(1);
             } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
                 outerDivRef.current.scrollTo({
-                    top: 0,
+                    top: document.querySelector("#intro").offsetTop,
                     left: 0,
                     behavior: "smooth",
                 });
@@ -291,7 +291,9 @@ const MyPortfolio = () => {
                         setNoDots={setNoDots}
                     />
                 )}
-                <Intro className="yContainer" id="Intro" />
+                <div id="intro">
+                    <Intro className="yContainer" id="Intro" />
+                </div>
                 <div id="skill">
                     <Skills id="2" className="yContainer" />
                 </div>
