@@ -352,6 +352,7 @@ const FullPageWrapper = styled.div`
     }
     @media screen and (max-width: 680px) {
         height: calc(var(--var, 1vh) * 100);
+        overflow-y: hidden;
     } ;
 `;
 
