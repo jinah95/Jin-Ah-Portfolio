@@ -152,8 +152,9 @@ const MyPortfolio = () => {
                 }`;
 
                 let diffY = initialY - currentY;
+                const pageHeight = window.innerHeight;
 
-                if (diffY !== 0 && 2 < Math.abs(diffY)) {
+                if (2 < Math.abs(diffY) && Math.abs(diffY) < pageHeight) {
                     0 < diffY ? upper() : down();
                 }
 
