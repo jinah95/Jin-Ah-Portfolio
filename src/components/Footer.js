@@ -285,6 +285,7 @@ const ContactWrapper = styled.div`
     padding: 0 0.4vw;
     @media screen and (max-width: 680px) {
         height: 20vh;
+        touch-action: none;
     } ;
 `;
 

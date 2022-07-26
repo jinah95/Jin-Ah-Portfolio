@@ -88,5 +88,6 @@ const SkillWrapper = styled.div`
     @media screen and (max-width: 680px) {
         width: 85vmin;
         height: 58vh;
+        touch-action: none;
     } ;
 `;
