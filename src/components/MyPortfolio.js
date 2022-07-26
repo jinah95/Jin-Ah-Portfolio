@@ -10,7 +10,7 @@ import { useMediaQuery } from "react-responsive";
 import { useRef, useEffect, useState } from "react";
 import throttle from "lodash.throttle";
 
-const DIVIDER_HEIGHT = 5;
+const DIVIDER_HEIGHT = 3;
 
 let vh = 0;
 const MyPortfolio = () => {
@@ -18,71 +18,67 @@ const MyPortfolio = () => {
     const outerDivRef = useRef();
     const [scrollIndex, setScrollIndex] = useState(1);
     const [noDots, setNoDots] = useState(true);
+    console.log(scrollIndex);
 
     useEffect(() => {
         let initialY = null;
-
-        const wheelHandler = (e) => {
-            e.preventDefault();
-            const { deltaY } = e;
-            const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
-            const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
-
+        let timer;
+        const wheelHandler = (e, deltaY, scrollTop, pageHeight) => {
+            // e.preventDefault();
+            console.log(scrollTop, pageHeight);
             if (deltaY > 0) {
                 // 스크롤 내릴 때
-                if (scrollTop >= 0 && scrollTop < pageHeight) {
+                if (scrollTop >= 0 && scrollTop < pageHeight - DIVIDER_HEIGHT) {
                     outerDivRef.current.scrollTo({
-                        top: pageHeight + DIVIDER_HEIGHT,
+                        top: document.querySelector("#skill").offsetTop,
                         left: 0,
                         behavior: "smooth",
                     });
-
                     setNoDots(true);
                     setScrollIndex(2);
                 } else if (
-                    scrollTop >= pageHeight &&
-                    scrollTop < pageHeight * 2
+                    scrollTop >= pageHeight - DIVIDER_HEIGHT &&
+                    scrollTop < pageHeight * 2 - DIVIDER_HEIGHT * 2
                 ) {
                     outerDivRef.current.scrollTo({
-                        top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
+                        top: document.querySelector("#project").offsetTop,
                         left: 0,
                         behavior: "smooth",
                     });
-
-                    setNoDots(false);
+                    setNoDots(true);
                     setScrollIndex(3);
                 } else if (
-                    scrollTop >= pageHeight * 2 &&
-                    scrollTop < pageHeight * 3
+                    scrollTop >= pageHeight * 2 - DIVIDER_HEIGHT * 2 &&
+                    scrollTop < pageHeight * 3 - DIVIDER_HEIGHT * 3
                 ) {
                     outerDivRef.current.scrollTo({
-                        top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
+                        top: document.querySelector("#timeline").offsetTop,
                         left: 0,
                         behavior: "smooth",
                     });
                     setNoDots(true);
                     setScrollIndex(4);
                 } else if (
-                    scrollTop >= pageHeight * 3 &&
-                    scrollTop < pageHeight * 4
+                    scrollTop >= pageHeight * 3 - DIVIDER_HEIGHT * 3 &&
+                    scrollTop < pageHeight * 4 - DIVIDER_HEIGHT * 4
                 ) {
                     outerDivRef.current.scrollTo({
-                        top: pageHeight * 4 + DIVIDER_HEIGHT * 4,
+                        top: document.querySelector("#footer").offsetTop,
                         left: 0,
                         behavior: "smooth",
                     });
-                    document.documentElement.style.overflow = "hidden";
                     setNoDots(true);
                     setScrollIndex(5);
                 } else {
                     outerDivRef.current.scrollTo({
-                        top: pageHeight * 4 + DIVIDER_HEIGHT * 4,
+                        top:
+                            pageHeight * scrollIndex +
+                            DIVIDER_HEIGHT * scrollIndex,
                         left: 0,
                         behavior: "smooth",
                     });
-                    document.documentElement.style.overflow = "hidden";
                     setNoDots(true);
-                    setScrollIndex(5);
+                    setScrollIndex(scrollIndex + 1);
                 }
             } else {
                 // 스크롤 올릴 때
@@ -95,53 +91,64 @@ const MyPortfolio = () => {
                     setNoDots(true);
                     setScrollIndex(1);
                 } else if (
-                    scrollTop >= pageHeight &&
+                    scrollTop >= pageHeight * 1 &&
                     scrollTop < pageHeight * 2
                 ) {
                     outerDivRef.current.scrollTo({
-                        top: 0,
-                        left: 0,
-                        behavior: "smooth",
-                    });
-                    setNoDots(true);
-                    setScrollIndex(1);
-                } else if (
-                    scrollTop >= pageHeight * 2 &&
-                    scrollTop < pageHeight * 3
-                ) {
-                    outerDivRef.current.scrollTo({
-                        top: pageHeight + DIVIDER_HEIGHT,
+                        top: document.querySelector("#skill").offsetTop,
                         left: 0,
                         behavior: "smooth",
                     });
                     setNoDots(true);
                     setScrollIndex(2);
                 } else if (
+                    scrollTop >= pageHeight * 2 &&
+                    scrollTop < pageHeight * 3
+                ) {
+                    outerDivRef.current.scrollTo({
+                        top: document.querySelector("#project").offsetTop,
+                        left: 0,
+                        behavior: "smooth",
+                    });
+                    setNoDots(true);
+                    setScrollIndex(3);
+                } else if (
                     scrollTop >= pageHeight * 3 &&
                     scrollTop < pageHeight * 4
                 ) {
                     outerDivRef.current.scrollTo({
-                        top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
-                        left: 0,
-                        behavior: "smooth",
-                    });
-                    setNoDots(false);
-                    setScrollIndex(3);
-                } else if (
-                    scrollTop >= pageHeight * 4 &&
-                    scrollTop < pageHeight * 5
-                ) {
-                    outerDivRef.current.scrollTo({
-                        top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
+                        top: document.querySelector("#timeline").offsetTop,
                         left: 0,
                         behavior: "smooth",
                     });
                     setNoDots(true);
                     setScrollIndex(4);
+                } else if (
+                    scrollTop >= pageHeight * 4 &&
+                    scrollTop < pageHeight * 5
+                ) {
+                    outerDivRef.current.scrollTo({
+                        top: pageHeight * 4 + DIVIDER_HEIGHT * 4,
+                        left: 0,
+                        behavior: "smooth",
+                    });
+                    setNoDots(true);
+                    setScrollIndex(4);
+                } else {
+                    outerDivRef.current.scrollTo({
+                        top:
+                            pageHeight * (scrollIndex - 1) +
+                            DIVIDER_HEIGHT * (scrollIndex - 1),
+                        left: 0,
+                        behavior: "smooth",
+                    });
+                    setNoDots(true);
+                    setScrollIndex(scrollIndex - 1);
                 }
             }
         };
         const initTouch = (e) => {
+            e.stopPropagation();
             initialY = `${e.touches ? e.touches[0].clientY : e.clientY}`;
         };
 
@@ -272,7 +279,25 @@ const MyPortfolio = () => {
 
         const outerDivRefCurrent = outerDivRef.current;
 
-        outerDivRefCurrent.addEventListener("wheel", wheelHandler);
+        outerDivRefCurrent.addEventListener(
+            "wheel",
+            (e) => {
+                const { deltaY } = e;
+                const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
+                const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
+
+                if (timer) {
+                    // 이전 요청의 timer가 남아있다면 지우기
+                    clearTimeout(timer);
+                }
+                timer = setTimeout((e) => {
+                    wheelHandler(e, deltaY, scrollTop, pageHeight);
+                }, 600);
+            },
+            {
+                passive: true,
+            }
+        );
         outerDivRefCurrent.addEventListener(
             "touchstart",
 
@@ -302,7 +327,7 @@ const MyPortfolio = () => {
     }, []);
 
     return (
-        <>
+        <div style={{ overflow: "hidden" }}>
             {/* <Comment>
                 # UI상 해당 페이지에서 ScrollDots는 숨겨두었습니다.
             </Comment> */}
@@ -315,6 +340,7 @@ const MyPortfolio = () => {
                         setNoDots={setNoDots}
                     />
                 )}
+
                 <Child id="intro">
                     <Intro className="yContainer" id="Intro" />
                 </Child>
@@ -330,11 +356,12 @@ const MyPortfolio = () => {
                 <Child id="footer">
                     <Footer className="yContainer" />
                 </Child>
+
                 {!isMobile && (
                     <FooterContainer>Jin-Ah's portfolio</FooterContainer>
                 )}
             </FullPageWrapper>
-        </>
+        </div>
     );
 };
 
@@ -342,7 +369,7 @@ export default MyPortfolio;
 
 const FullPageWrapper = styled.div`
     height: 100vh;
-    overflow-y: auto;
+    overflow-y: hidden;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
     font-family: "East Sea Dokdo", sans-serif;
@@ -352,7 +379,7 @@ const FullPageWrapper = styled.div`
     }
     @media screen and (max-width: 680px) {
         height: calc(var(--var, 1vh) * 100);
-        overflow-y: hidden;
+        overflow-y: auto;
     } ;
 `;
 
