@@ -6,12 +6,14 @@ import TimeLine from "./TimeLine";
 import Footer from "./Footer";
 import Dots from "./Dots";
 import styled from "styled-components";
+import { useMediaQuery } from "react-responsive";
 import { useRef, useEffect, useState } from "react";
 
 const DIVIDER_HEIGHT = 5;
 
 let vh = 0;
 const MyPortfolio = () => {
+    const isMobile = useMediaQuery({ query: "(max-width: 680px)" });
     const outerDivRef = useRef();
     const [scrollIndex, setScrollIndex] = useState(1);
     const [noDots, setNoDots] = useState(true);
@@ -314,7 +316,9 @@ const MyPortfolio = () => {
                 <Child id="footer">
                     <Footer className="yContainer" />
                 </Child>
-                <FooterContainer>Jin-Ah's portfolio</FooterContainer>
+                {!isMobile && (
+                    <FooterContainer>Jin-Ah's portfolio</FooterContainer>
+                )}
             </FullPageWrapper>
         </>
     );
