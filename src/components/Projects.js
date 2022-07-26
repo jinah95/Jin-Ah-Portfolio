@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Carousel from "./Carousel";
 import styled from "styled-components";
 import project from "../projects.json";
@@ -22,11 +22,7 @@ const Projects = () => {
         }
         setSlideIndex(slideIndex - 1);
     };
-    let vh = 0;
-    useEffect(() => {
-        vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty("--vh", `${vh}px`);
-    }, []);
+
     return (
         <div className="inner" style={{ fontSize: "3.5em" }}>
             <Container>
@@ -85,7 +81,7 @@ const Container = styled.div`
     align-items: center;
     height: 85vh;
     @media screen and (max-width: 680px) {
-        height: calc(var(--var, 1vh) * 100);
+        height: 100vh;
         justify-content: center;
     } ;
 `;

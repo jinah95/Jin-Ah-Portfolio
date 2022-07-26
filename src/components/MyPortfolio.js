@@ -228,7 +228,7 @@ const MyPortfolio = () => {
                 scrollTop < pageHeight * 3
             ) {
                 outerDivRef.current.scrollTo({
-                    top: pageHeight + 7 * vh * 2,
+                    top: document.querySelector("#skill").offsetTop,
                     left: 0,
                     behavior: "smooth",
                 });
@@ -239,7 +239,7 @@ const MyPortfolio = () => {
                 scrollTop < pageHeight * 4
             ) {
                 outerDivRef.current.scrollTo({
-                    top: pageHeight * 2 + 7 * vh * 3,
+                    top: document.querySelector("#project").offsetTop,
                     left: 0,
                     behavior: "smooth",
                 });
@@ -250,7 +250,7 @@ const MyPortfolio = () => {
                 scrollTop < pageHeight * 5
             ) {
                 outerDivRef.current.scrollTo({
-                    top: pageHeight * 3 * (7 * vh) * 4,
+                    top: document.querySelector("#timeline").offsetTop,
                     left: 0,
                     behavior: "smooth",
                 });
