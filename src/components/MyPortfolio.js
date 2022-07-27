@@ -151,7 +151,7 @@ const MyPortfolio = () => {
             // const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
 
             if (scrollIndex === 1) {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#skill").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -159,7 +159,7 @@ const MyPortfolio = () => {
                 setNoDots(true);
                 setScrollIndex(2);
             } else if (scrollIndex === 2) {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#project").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -167,7 +167,7 @@ const MyPortfolio = () => {
                 setNoDots(false);
                 setScrollIndex(3);
             } else if (scrollIndex === 3) {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#timeline").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -175,7 +175,7 @@ const MyPortfolio = () => {
                 setNoDots(true);
                 setScrollIndex(4);
             } else if (scrollIndex === 4) {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#footer").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -183,7 +183,7 @@ const MyPortfolio = () => {
                 setNoDots(true);
                 setScrollIndex(5);
             } else {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#footer").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -198,7 +198,7 @@ const MyPortfolio = () => {
             // const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
 
             if (scrollIndex === 1) {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#intro").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -206,7 +206,7 @@ const MyPortfolio = () => {
                 setNoDots(true);
                 setScrollIndex(1);
             } else if (scrollIndex === 2) {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#intro").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -214,7 +214,7 @@ const MyPortfolio = () => {
                 setNoDots(true);
                 setScrollIndex(1);
             } else if (scrollIndex === 3) {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#skill").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -222,7 +222,7 @@ const MyPortfolio = () => {
                 setNoDots(true);
                 setScrollIndex(2);
             } else if (scrollIndex === 4) {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#project").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -230,7 +230,7 @@ const MyPortfolio = () => {
                 setNoDots(false);
                 setScrollIndex(3);
             } else if (scrollIndex === 5) {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#timeline").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -238,7 +238,7 @@ const MyPortfolio = () => {
                 setNoDots(true);
                 setScrollIndex(4);
             } else {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#timeline").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -346,7 +346,7 @@ const MyPortfolio = () => {
                 }
             );
         };
-    }, [scrollIndex]);
+    }, []);
 
     useEffect(() => {
         vh = window.innerHeight * 0.01;
