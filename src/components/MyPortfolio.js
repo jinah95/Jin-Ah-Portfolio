@@ -294,7 +294,6 @@ const MyPortfolio = () => {
                 const currentY = `${
                     e.changedTouches ? e.changedTouches[0].clientY : e.clientY
                 }`;
-
                 timer = setTimeout((e) => {
                     swipeDirection(e, currentY);
                 }, 900);
