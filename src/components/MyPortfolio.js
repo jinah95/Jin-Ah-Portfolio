@@ -19,7 +19,6 @@ const MyPortfolio = () => {
     const [noDots, setNoDots] = useState(true);
 
     useEffect(() => {
-        let initialY = null;
         let timer;
         const wheelHandler = (e, deltaY, scrollTop, pageHeight) => {
             if (deltaY > 0) {
@@ -132,121 +131,121 @@ const MyPortfolio = () => {
             }
         };
 
-        const swipeDirection = (e, currentY) => {
-            const pageHeight = window.innerHeight;
+        // const swipeDirection = (e, currentY) => {
+        //     const pageHeight = window.innerHeight;
 
-            if (initialY !== null) {
-                let diffY = initialY - currentY;
+        //     if (initialY !== null) {
+        //         let diffY = initialY - currentY;
 
-                if (2 < Math.abs(diffY) && Math.abs(diffY) < pageHeight * 0.8) {
-                    0 < diffY ? upper() : down();
-                }
+        //         if (2 < Math.abs(diffY) && Math.abs(diffY) < pageHeight * 0.8) {
+        //             0 < diffY ? upper() : down();
+        //         }
 
-                initialY = null;
-            }
-        };
+        //         initialY = null;
+        //     }
+        // };
 
-        const upper = () => {
-            // const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
-            // const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
+        // const upper = () => {
+        //     // const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
+        //     // const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
 
-            if (scrollIndex === 1) {
-                outerDivRef.current.scrollTo({
-                    top: document.querySelector("#skill").offsetTop,
-                    left: 0,
-                    behavior: "smooth",
-                });
-                setNoDots(true);
-                setScrollIndex(2);
-            } else if (scrollIndex === 2) {
-                outerDivRef.current.scrollTo({
-                    top: document.querySelector("#project").offsetTop,
-                    left: 0,
-                    behavior: "smooth",
-                });
-                setNoDots(false);
-                setScrollIndex(3);
-            } else if (scrollIndex === 3) {
-                outerDivRef.current.scrollTo({
-                    top: document.querySelector("#timeline").offsetTop,
-                    left: 0,
-                    behavior: "smooth",
-                });
-                setNoDots(true);
-                setScrollIndex(4);
-            } else if (scrollIndex === 4) {
-                outerDivRef.current.scrollTo({
-                    top: document.querySelector("#footer").offsetTop,
-                    left: 0,
-                    behavior: "smooth",
-                });
-                setNoDots(true);
-                setScrollIndex(5);
-            } else {
-                outerDivRef.current.scrollTo({
-                    top: document.querySelector("#footer").offsetTop,
-                    left: 0,
-                    behavior: "smooth",
-                });
-                setNoDots(true);
-                setScrollIndex(5);
-            }
-        };
+        //     if (scrollIndex === 1) {
+        //         outerDivRef.current.scrollTo({
+        //             top: document.querySelector("#skill").offsetTop,
+        //             left: 0,
+        //             behavior: "smooth",
+        //         });
+        //         setNoDots(true);
+        //         setScrollIndex(2);
+        //     } else if (scrollIndex === 2) {
+        //         outerDivRef.current.scrollTo({
+        //             top: document.querySelector("#project").offsetTop,
+        //             left: 0,
+        //             behavior: "smooth",
+        //         });
+        //         setNoDots(false);
+        //         setScrollIndex(3);
+        //     } else if (scrollIndex === 3) {
+        //         outerDivRef.current.scrollTo({
+        //             top: document.querySelector("#timeline").offsetTop,
+        //             left: 0,
+        //             behavior: "smooth",
+        //         });
+        //         setNoDots(true);
+        //         setScrollIndex(4);
+        //     } else if (scrollIndex === 4) {
+        //         outerDivRef.current.scrollTo({
+        //             top: document.querySelector("#footer").offsetTop,
+        //             left: 0,
+        //             behavior: "smooth",
+        //         });
+        //         setNoDots(true);
+        //         setScrollIndex(5);
+        //     } else {
+        //         outerDivRef.current.scrollTo({
+        //             top: document.querySelector("#footer").offsetTop,
+        //             left: 0,
+        //             behavior: "smooth",
+        //         });
+        //         setNoDots(true);
+        //         setScrollIndex(5);
+        //     }
+        // };
 
-        const down = () => {
-            // const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
-            // const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
+        // const down = () => {
+        //     // const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
+        //     // const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
 
-            if (scrollIndex === 1) {
-                outerDivRef.current.scrollTo({
-                    top: document.querySelector("#intro").offsetTop,
-                    left: 0,
-                    behavior: "smooth",
-                });
-                setNoDots(true);
-                setScrollIndex(1);
-            } else if (scrollIndex === 2) {
-                outerDivRef.current.scrollTo({
-                    top: document.querySelector("#intro").offsetTop,
-                    left: 0,
-                    behavior: "smooth",
-                });
-                setNoDots(true);
-                setScrollIndex(1);
-            } else if (scrollIndex === 3) {
-                outerDivRef.current.scrollTo({
-                    top: document.querySelector("#skill").offsetTop,
-                    left: 0,
-                    behavior: "smooth",
-                });
-                setNoDots(true);
-                setScrollIndex(2);
-            } else if (scrollIndex === 4) {
-                outerDivRef.current.scrollTo({
-                    top: document.querySelector("#project").offsetTop,
-                    left: 0,
-                    behavior: "smooth",
-                });
-                setNoDots(false);
-                setScrollIndex(3);
-            } else if (scrollIndex === 5) {
-                outerDivRef.current.scrollTo({
-                    top: document.querySelector("#timeline").offsetTop,
-                    left: 0,
-                    behavior: "smooth",
-                });
-                setNoDots(true);
-                setScrollIndex(4);
-            } else {
-                outerDivRef.current.scrollTo({
-                    top: document.querySelector("#timeline").offsetTop,
-                    left: 0,
-                    behavior: "smooth",
-                });
-                setNoDots(true);
-                setScrollIndex(4);
-            }
-        };
+        //     if (scrollIndex === 1) {
+        //         outerDivRef.current.scrollTo({
+        //             top: document.querySelector("#intro").offsetTop,
+        //             left: 0,
+        //             behavior: "smooth",
+        //         });
+        //         setNoDots(true);
+        //         setScrollIndex(1);
+        //     } else if (scrollIndex === 2) {
+        //         outerDivRef.current.scrollTo({
+        //             top: document.querySelector("#intro").offsetTop,
+        //             left: 0,
+        //             behavior: "smooth",
+        //         });
+        //         setNoDots(true);
+        //         setScrollIndex(1);
+        //     } else if (scrollIndex === 3) {
+        //         outerDivRef.current.scrollTo({
+        //             top: document.querySelector("#skill").offsetTop,
+        //             left: 0,
+        //             behavior: "smooth",
+        //         });
+        //         setNoDots(true);
+        //         setScrollIndex(2);
+        //     } else if (scrollIndex === 4) {
+        //         outerDivRef.current.scrollTo({
+        //             top: document.querySelector("#project").offsetTop,
+        //             left: 0,
+        //             behavior: "smooth",
+        //         });
+        //         setNoDots(false);
+        //         setScrollIndex(3);
+        //     } else if (scrollIndex === 5) {
+        //         outerDivRef.current.scrollTo({
+        //             top: document.querySelector("#timeline").offsetTop,
+        //             left: 0,
+        //             behavior: "smooth",
+        //         });
+        //         setNoDots(true);
+        //         setScrollIndex(4);
+        //     } else {
+        //         outerDivRef.current.scrollTo({
+        //             top: document.querySelector("#timeline").offsetTop,
+        //             left: 0,
+        //             behavior: "smooth",
+        //         });
+        //         setNoDots(true);
+        //         setScrollIndex(4);
+        //     }
+        // };
 
         const outerDivRefCurrent = outerDivRef.current;
 
@@ -270,81 +269,81 @@ const MyPortfolio = () => {
             }
         );
 
-        outerDivRefCurrent.addEventListener(
-            "touchstart",
-            (e) => {
-                if (timer) {
-                    // 이전 요청의 timer가 남아있다면 지우기
-                    clearTimeout(timer);
-                }
-                initialY = `${e.touches ? e.touches[0].clientY : e.clientY}`;
-                timer = setTimeout((event) => {}, 1000);
-            },
-            {
-                passive: true,
-            }
-        );
-        outerDivRefCurrent.addEventListener(
-            "touchend",
-            (e) => {
-                if (timer) {
-                    // 이전 요청의 timer가 남아있다면 지우기
-                    clearTimeout(timer);
-                }
+        // outerDivRefCurrent.addEventListener(
+        //     "touchstart",
+        //     (e) => {
+        //         if (timer) {
+        //             // 이전 요청의 timer가 남아있다면 지우기
+        //             clearTimeout(timer);
+        //         }
+        //         initialY = `${e.touches ? e.touches[0].clientY : e.clientY}`;
+        //         timer = setTimeout((event) => {}, 1000);
+        //     },
+        //     {
+        //         passive: true,
+        //     }
+        // );
+        // outerDivRefCurrent.addEventListener(
+        //     "touchend",
+        //     (e) => {
+        //         if (timer) {
+        //             // 이전 요청의 timer가 남아있다면 지우기
+        //             clearTimeout(timer);
+        //         }
 
-                const currentY = `${
-                    e.changedTouches ? e.changedTouches[0].clientY : e.clientY
-                }`;
-                timer = setTimeout((e) => {
-                    swipeDirection(e, currentY);
-                }, 500);
-            },
-            {
-                passive: true,
-            }
-        );
+        //         const currentY = `${
+        //             e.changedTouches ? e.changedTouches[0].clientY : e.clientY
+        //         }`;
+        //         timer = setTimeout((e) => {
+        //             swipeDirection(e, currentY);
+        //         }, 500);
+        //     },
+        //     {
+        //         passive: true,
+        //     }
+        // );
 
         return () => {
             outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
-            outerDivRefCurrent.removeEventListener(
-                "touchstart",
-                (e) => {
-                    if (timer) {
-                        // 이전 요청의 timer가 남아있다면 지우기
-                        clearTimeout(timer);
-                    }
+            // outerDivRefCurrent.removeEventListener(
+            //     "touchstart",
+            //     (e) => {
+            //         if (timer) {
+            //             // 이전 요청의 timer가 남아있다면 지우기
+            //             clearTimeout(timer);
+            //         }
 
-                    initialY = `${
-                        e.touches ? e.touches[0].clientY : e.clientY
-                    }`;
-                    timer = setTimeout((event) => {}, 600);
-                },
-                {
-                    passive: true,
-                }
-            );
-            outerDivRefCurrent.removeEventListener(
-                "touchend",
-                (e) => {
-                    if (timer) {
-                        // 이전 요청의 timer가 남아있다면 지우기
-                        clearTimeout(timer);
-                    }
+            //         initialY = `${
+            //             e.touches ? e.touches[0].clientY : e.clientY
+            //         }`;
+            //         timer = setTimeout((event) => {}, 600);
+            //     },
+            //     {
+            //         passive: true,
+            //     }
+            // );
+            // outerDivRefCurrent.removeEventListener(
+            //     "touchend",
+            //     (e) => {
+            //         if (timer) {
+            //             // 이전 요청의 timer가 남아있다면 지우기
+            //             clearTimeout(timer);
+            //         }
 
-                    const currentY = `${
-                        e.changedTouches
-                            ? e.changedTouches[0].clientY
-                            : e.clientY
-                    }`;
+            //         const currentY = `${
+            //             e.changedTouches
+            //                 ? e.changedTouches[0].clientY
+            //                 : e.clientY
+            //         }`;
 
-                    timer = setTimeout((e) => {
-                        swipeDirection(e, currentY);
-                    }, 900);
-                },
-                {
-                    passive: true,
-                }
-            );
+            //         timer = setTimeout((e) => {
+            //             swipeDirection(e, currentY);
+            //         }, 900);
+            //     },
+            //     {
+            //         passive: true,
+            //     }
+            // );
         };
     }, []);
 
@@ -354,7 +353,7 @@ const MyPortfolio = () => {
     }, []);
 
     return (
-        <div style={{ overflow: "hidden", height: "100%" }}>
+        <div style={{ overflow: "hidden" }}>
             {/* <Comment>
                 # UI상 해당 페이지에서 ScrollDots는 숨겨두었습니다.
             </Comment> */}
@@ -406,7 +405,7 @@ const FullPageWrapper = styled.div`
     }
     @media screen and (max-width: 680px) {
         height: calc(var(--var, 1vh) * 100);
-        overflow-y: hidden;
+        overflow-y: auto;
     } ;
 `;
 

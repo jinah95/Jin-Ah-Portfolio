@@ -45,6 +45,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     overflow-y: hidden;
     height: 100%;
+    background: no-repeat linear-gradient(#ffefba, #fff);
 }
 
 .yContainer {
@@ -58,7 +59,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: no-repeat linear-gradient(#ffefba, #fff);
 }
 
 /* .divider {
