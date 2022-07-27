@@ -45,7 +45,6 @@ const Container = styled.div`
         height: 100%;
         justify-content: center;
         overflow-y: hidden;
-        padding-bottom: 0;
     } ;
 `;
 

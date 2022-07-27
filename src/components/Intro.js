@@ -316,7 +316,6 @@ const AllContainers = styled.div`
     @media screen and (max-width: 680px) {
         height: 100%;
         overflow-y: hidden;
-        padding-bottom: 0;
     } ;
 `;
 

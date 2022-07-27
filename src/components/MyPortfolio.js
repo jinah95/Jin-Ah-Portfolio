@@ -405,7 +405,7 @@ const FullPageWrapper = styled.div`
         background: transparent;
     }
     @media screen and (max-width: 680px) {
-        height: 100vh;
+        height: calc(var(--var, 1vh) * 100);
         overflow-y: hidden;
     } ;
 `;
