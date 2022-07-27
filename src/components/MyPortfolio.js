@@ -134,6 +134,7 @@ const MyPortfolio = () => {
 
         const swipeDirection = (e, currentY) => {
             const pageHeight = window.innerHeight;
+
             if (initialY !== null) {
                 let diffY = initialY - currentY;
 
@@ -146,12 +147,11 @@ const MyPortfolio = () => {
         };
 
         const upper = () => {
-            const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
-            const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
-            console.log(scrollTop, pageHeight, scrollIndex);
+            // const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
+            // const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
 
             if (scrollIndex === 1) {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#skill").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -159,7 +159,7 @@ const MyPortfolio = () => {
                 setNoDots(true);
                 setScrollIndex(2);
             } else if (scrollIndex === 2) {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#project").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -167,7 +167,7 @@ const MyPortfolio = () => {
                 setNoDots(false);
                 setScrollIndex(3);
             } else if (scrollIndex === 3) {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#timeline").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -175,7 +175,7 @@ const MyPortfolio = () => {
                 setNoDots(true);
                 setScrollIndex(4);
             } else if (scrollIndex === 4) {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#footer").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -183,7 +183,7 @@ const MyPortfolio = () => {
                 setNoDots(true);
                 setScrollIndex(5);
             } else {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#footer").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -198,7 +198,7 @@ const MyPortfolio = () => {
             // const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
 
             if (scrollIndex === 1) {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#intro").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -206,7 +206,7 @@ const MyPortfolio = () => {
                 setNoDots(true);
                 setScrollIndex(1);
             } else if (scrollIndex === 2) {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#intro").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -214,7 +214,7 @@ const MyPortfolio = () => {
                 setNoDots(true);
                 setScrollIndex(1);
             } else if (scrollIndex === 3) {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#skill").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -222,7 +222,7 @@ const MyPortfolio = () => {
                 setNoDots(true);
                 setScrollIndex(2);
             } else if (scrollIndex === 4) {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#project").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -230,7 +230,7 @@ const MyPortfolio = () => {
                 setNoDots(false);
                 setScrollIndex(3);
             } else if (scrollIndex === 5) {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#timeline").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -238,7 +238,7 @@ const MyPortfolio = () => {
                 setNoDots(true);
                 setScrollIndex(4);
             } else {
-                window.scrollTo({
+                outerDivRef.current.scrollTo({
                     top: document.querySelector("#timeline").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -278,7 +278,7 @@ const MyPortfolio = () => {
                     clearTimeout(timer);
                 }
                 initialY = `${e.touches ? e.touches[0].clientY : e.clientY}`;
-                timer = setTimeout((event) => {}, 600);
+                timer = setTimeout((event) => {}, 1000);
             },
             {
                 passive: true,
@@ -291,12 +291,13 @@ const MyPortfolio = () => {
                     // 이전 요청의 timer가 남아있다면 지우기
                     clearTimeout(timer);
                 }
+
                 const currentY = `${
                     e.changedTouches ? e.changedTouches[0].clientY : e.clientY
                 }`;
                 timer = setTimeout((e) => {
                     swipeDirection(e, currentY);
-                }, 900);
+                }, 500);
             },
             {
                 passive: true,
@@ -404,7 +405,7 @@ const FullPageWrapper = styled.div`
         background: transparent;
     }
     @media screen and (max-width: 680px) {
-        height: 100%;
+        height: 100vh;
         overflow-y: hidden;
     } ;
 `;
