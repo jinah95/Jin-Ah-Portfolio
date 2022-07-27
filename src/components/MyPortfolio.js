@@ -146,8 +146,9 @@ const MyPortfolio = () => {
         };
 
         const upper = () => {
-            // const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
-            // const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
+            const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
+            const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
+            console.log(scrollTop, pageHeight, scrollIndex);
 
             if (scrollIndex === 1) {
                 window.scrollTo({
@@ -268,6 +269,7 @@ const MyPortfolio = () => {
                 passive: true,
             }
         );
+
         outerDivRefCurrent.addEventListener(
             "touchstart",
             (e) => {
@@ -275,7 +277,6 @@ const MyPortfolio = () => {
                     // 이전 요청의 timer가 남아있다면 지우기
                     clearTimeout(timer);
                 }
-
                 initialY = `${e.touches ? e.touches[0].clientY : e.clientY}`;
                 timer = setTimeout((event) => {}, 600);
             },
@@ -290,7 +291,6 @@ const MyPortfolio = () => {
                     // 이전 요청의 timer가 남아있다면 지우기
                     clearTimeout(timer);
                 }
-
                 const currentY = `${
                     e.changedTouches ? e.changedTouches[0].clientY : e.clientY
                 }`;
@@ -308,18 +308,43 @@ const MyPortfolio = () => {
             outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
             outerDivRefCurrent.removeEventListener(
                 "touchstart",
-                function initTouch(e) {
-                    initialY = `${
-                        e.touches ? e.touches[0].clientY : e.clientY
-                    }`;
+                (e) => {
                     if (timer) {
                         // 이전 요청의 timer가 남아있다면 지우기
                         clearTimeout(timer);
                     }
-                    timer = setTimeout((e) => {}, 600);
+
+                    initialY = `${
+                        e.touches ? e.touches[0].clientY : e.clientY
+                    }`;
+                    timer = setTimeout((event) => {}, 600);
+                },
+                {
+                    passive: true,
                 }
             );
-            outerDivRefCurrent.removeEventListener("touchend", swipeDirection);
+            outerDivRefCurrent.removeEventListener(
+                "touchend",
+                (e) => {
+                    if (timer) {
+                        // 이전 요청의 timer가 남아있다면 지우기
+                        clearTimeout(timer);
+                    }
+
+                    const currentY = `${
+                        e.changedTouches
+                            ? e.changedTouches[0].clientY
+                            : e.clientY
+                    }`;
+
+                    timer = setTimeout((e) => {
+                        swipeDirection(e, currentY);
+                    }, 900);
+                },
+                {
+                    passive: true,
+                }
+            );
         };
     }, [scrollIndex]);
 
@@ -329,7 +354,7 @@ const MyPortfolio = () => {
     }, []);
 
     return (
-        <div style={{ overflow: "hidden" }}>
+        <div style={{ overflow: "hidden", height: "100%" }}>
             {/* <Comment>
                 # UI상 해당 페이지에서 ScrollDots는 숨겨두었습니다.
             </Comment> */}
