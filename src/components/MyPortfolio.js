@@ -413,7 +413,7 @@ const FullPageWrapper = styled.div`
 const Child = styled.div`
     height: 100vh;
     @media screen and (max-width: 680px) {
-        height: 100%;
+        height: 100vh;
         overflow-y: hidden;
     } ;
 `;
