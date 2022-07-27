@@ -84,6 +84,7 @@ const Container = styled.div`
     @media screen and (max-width: 680px) {
         height: 100vh;
         justify-content: center;
+        overflow-y: hidden;
     } ;
 `;
 
