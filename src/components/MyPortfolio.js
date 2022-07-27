@@ -8,7 +8,6 @@ import Dots from "./Dots";
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
 import { useRef, useEffect, useState } from "react";
-import throttle from "lodash.throttle";
 
 const DIVIDER_HEIGHT = 3;
 
@@ -132,21 +131,13 @@ const MyPortfolio = () => {
                 }
             }
         };
-        const initTouch = (e) => {
-            e.stopPropagation();
-            initialY = `${e.touches ? e.touches[0].clientY : e.clientY}`;
-        };
 
-        const swipeDirection = (e) => {
+        const swipeDirection = (e, currentY) => {
+            const pageHeight = window.innerHeight;
             if (initialY !== null) {
-                const currentY = `${
-                    e.changedTouches ? e.changedTouches[0].clientY : e.clientY
-                }`;
-
                 let diffY = initialY - currentY;
-                const pageHeight = window.innerHeight;
 
-                if (2 < Math.abs(diffY) && Math.abs(diffY) < 400) {
+                if (2 < Math.abs(diffY) && Math.abs(diffY) < pageHeight * 0.8) {
                     0 < diffY ? upper() : down();
                 }
 
@@ -154,41 +145,36 @@ const MyPortfolio = () => {
             }
         };
 
-        const upper = (e) => {
-            const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
-            const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
-            if (scrollTop >= 0 && scrollTop < pageHeight) {
-                outerDivRef.current.scrollTo({
+        const upper = () => {
+            // const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
+            // const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
+
+            if (scrollIndex === 1) {
+                window.scrollTo({
                     top: document.querySelector("#skill").offsetTop,
                     left: 0,
                     behavior: "smooth",
                 });
                 setNoDots(true);
                 setScrollIndex(2);
-            } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
-                outerDivRef.current.scrollTo({
+            } else if (scrollIndex === 2) {
+                window.scrollTo({
                     top: document.querySelector("#project").offsetTop,
                     left: 0,
                     behavior: "smooth",
                 });
                 setNoDots(false);
                 setScrollIndex(3);
-            } else if (
-                scrollTop >= pageHeight * 2 &&
-                scrollTop < pageHeight * 3
-            ) {
-                outerDivRef.current.scrollTo({
+            } else if (scrollIndex === 3) {
+                window.scrollTo({
                     top: document.querySelector("#timeline").offsetTop,
                     left: 0,
                     behavior: "smooth",
                 });
                 setNoDots(true);
                 setScrollIndex(4);
-            } else if (
-                scrollTop >= pageHeight * 3 &&
-                scrollTop < pageHeight * 4
-            ) {
-                outerDivRef.current.scrollTo({
+            } else if (scrollIndex === 4) {
+                window.scrollTo({
                     top: document.querySelector("#footer").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -196,7 +182,7 @@ const MyPortfolio = () => {
                 setNoDots(true);
                 setScrollIndex(5);
             } else {
-                outerDivRef.current.scrollTo({
+                window.scrollTo({
                     top: document.querySelector("#footer").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -207,52 +193,51 @@ const MyPortfolio = () => {
         };
 
         const down = () => {
-            const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
-            const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
+            // const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
+            // const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
 
-            if (scrollTop >= 0 && scrollTop < pageHeight) {
-                outerDivRef.current.scrollTo({
+            if (scrollIndex === 1) {
+                window.scrollTo({
                     top: document.querySelector("#intro").offsetTop,
                     left: 0,
                     behavior: "smooth",
                 });
                 setNoDots(true);
                 setScrollIndex(1);
-            } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
-                outerDivRef.current.scrollTo({
+            } else if (scrollIndex === 2) {
+                window.scrollTo({
                     top: document.querySelector("#intro").offsetTop,
                     left: 0,
                     behavior: "smooth",
                 });
                 setNoDots(true);
                 setScrollIndex(1);
-            } else if (
-                scrollTop >= pageHeight * 2 &&
-                scrollTop < pageHeight * 3
-            ) {
-                outerDivRef.current.scrollTo({
+            } else if (scrollIndex === 3) {
+                window.scrollTo({
                     top: document.querySelector("#skill").offsetTop,
                     left: 0,
                     behavior: "smooth",
                 });
                 setNoDots(true);
                 setScrollIndex(2);
-            } else if (
-                scrollTop >= pageHeight * 3 &&
-                scrollTop < pageHeight * 4
-            ) {
-                outerDivRef.current.scrollTo({
+            } else if (scrollIndex === 4) {
+                window.scrollTo({
                     top: document.querySelector("#project").offsetTop,
                     left: 0,
                     behavior: "smooth",
                 });
                 setNoDots(false);
                 setScrollIndex(3);
-            } else if (
-                scrollTop >= pageHeight * 4 &&
-                scrollTop < pageHeight * 5
-            ) {
-                outerDivRef.current.scrollTo({
+            } else if (scrollIndex === 5) {
+                window.scrollTo({
+                    top: document.querySelector("#timeline").offsetTop,
+                    left: 0,
+                    behavior: "smooth",
+                });
+                setNoDots(true);
+                setScrollIndex(4);
+            } else {
+                window.scrollTo({
                     top: document.querySelector("#timeline").offsetTop,
                     left: 0,
                     behavior: "smooth",
@@ -285,15 +270,35 @@ const MyPortfolio = () => {
         );
         outerDivRefCurrent.addEventListener(
             "touchstart",
+            (e) => {
+                if (timer) {
+                    // 이전 요청의 timer가 남아있다면 지우기
+                    clearTimeout(timer);
+                }
 
-            throttle(initTouch, 2000),
+                initialY = `${e.touches ? e.touches[0].clientY : e.clientY}`;
+                timer = setTimeout((event) => {}, 600);
+            },
             {
                 passive: true,
             }
         );
         outerDivRefCurrent.addEventListener(
             "touchend",
-            throttle(swipeDirection, 2000),
+            (e) => {
+                if (timer) {
+                    // 이전 요청의 timer가 남아있다면 지우기
+                    clearTimeout(timer);
+                }
+
+                const currentY = `${
+                    e.changedTouches ? e.changedTouches[0].clientY : e.clientY
+                }`;
+
+                timer = setTimeout((e) => {
+                    swipeDirection(e, currentY);
+                }, 900);
+            },
             {
                 passive: true,
             }
@@ -301,7 +306,19 @@ const MyPortfolio = () => {
 
         return () => {
             outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
-            outerDivRefCurrent.removeEventListener("touchstart", initTouch);
+            outerDivRefCurrent.removeEventListener(
+                "touchstart",
+                function initTouch(e) {
+                    initialY = `${
+                        e.touches ? e.touches[0].clientY : e.clientY
+                    }`;
+                    if (timer) {
+                        // 이전 요청의 timer가 남아있다면 지우기
+                        clearTimeout(timer);
+                    }
+                    timer = setTimeout((e) => {}, 600);
+                }
+            );
             outerDivRefCurrent.removeEventListener("touchend", swipeDirection);
         };
     }, [scrollIndex]);
@@ -363,15 +380,16 @@ const FullPageWrapper = styled.div`
         background: transparent;
     }
     @media screen and (max-width: 680px) {
-        height: calc(var(--var, 1vh) * 100);
-        overflow-y: auto;
+        height: 100%;
+        overflow-y: hidden;
     } ;
 `;
 
 const Child = styled.div`
     height: 100vh;
     @media screen and (max-width: 680px) {
-        height: calc(var(--var, 1vh) * 100);
+        height: 100%;
+        overflow-y: hidden;
     } ;
 `;
 

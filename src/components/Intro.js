@@ -315,6 +315,7 @@ const AllContainers = styled.div`
     font-family: "East Sea Dokdo", sans-serif;
     @media screen and (max-width: 680px) {
         height: 100vh;
+        overflow-y: hidden;
     } ;
 `;
 
